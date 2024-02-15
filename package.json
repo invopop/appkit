@@ -1,0 +1,23 @@
+{
+  "name": "@invopop/alpine-kit",
+  "version": "0.0.1",
+  "description": "A collection of reusable Alpine components ready to use inside Invopop modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invopop/alpine-kit.git"
+  },
+  "keywords": [
+    "alpine",
+    "kit"
+  ],
+  "author": "Invopop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/invopop/alpine-kit/issues"
+  },
+  "homepage": "https://github.com/invopop/alpine-kit#readme"
+}

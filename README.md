@@ -71,10 +71,9 @@ The global stylesheet provides styling for common elements like inputs and butto
       />
     </label>
   </div>
-![image](https://github.com/invopop/alpine-kit/assets/12644599/0c36dd98-894f-4352-8304-f259de5c91f9)
-
 
   <!-- ui-save-button will apply styles to the submit button for the form -->
   <button class="ui-save-button" @click="saveConfig">Save</button>
 </div>
 ```
+![image](https://github.com/invopop/alpine-kit/assets/12644599/0c36dd98-894f-4352-8304-f259de5c91f9)

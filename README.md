@@ -35,7 +35,7 @@ If you are going to make use of a reusable component (See below) you need to add
 <script src="https://unpkg.com/alpinejs-component@latest/dist/component.min.js"></script>
 ```
 
-## Usage
+## Usage
 
 ### Components
 

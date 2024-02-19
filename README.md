@@ -36,10 +36,9 @@ Browse through the components directory to find reusable Alpine.js components. E
 ```html
 <!-- image-picker-html -->
 <div class="ui-image-picker">
-  <img :src="YOUR_IMAGE_PROPERTY || 'https://placehold.co/40x40?text=Logo'" />
-
-  <span>Select logo...</span>
-  <button @click="selectImageMethod">
+  <img :src="config.logo_url || 'https://placehold.co/40x40?text=Logo'" />
+  <span x-text="loading ? 'Uploading...' : 'Select logo...'"></span>
+  <button @click="selectImage" :disabled="loading">
     <svg
       width="20"
       height="20"
@@ -56,7 +55,7 @@ Browse through the components directory to find reusable Alpine.js components. E
       />
     </svg>
   </button>
-  <button @click="deleteImageMethod">
+  <button @click="deleteImage" :disabled="loading">
     <svg
       width="20"
       height="20"
@@ -71,6 +70,18 @@ Browse through the components directory to find reusable Alpine.js components. E
       />
     </svg>
   </button>
+</div>
+
+<div class="ui-input">
+  <label>
+    <span>Logo height:</span>
+    <input
+      type="number"
+      x-model.number="config.logo_height"
+      min="10"
+      max="50"
+    />
+  </label>
 </div>
 ```
 

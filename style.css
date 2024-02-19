@@ -152,3 +152,7 @@ button {
   background: #FFF;
   cursor: pointer;
 }
+.ui-image-picker > button:disabled,
+.ui-image-picker > button[disabled]{
+  opacity: 0.3;
+}

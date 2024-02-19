@@ -27,7 +27,7 @@ Include the stylesheet for common elements, such as inputs and buttons.
 />
 ```
 
-## Usage
+## Usage
 
 ### Components
 
@@ -74,6 +74,8 @@ Browse through the components directory to find reusable Alpine.js components. E
 </div>
 ```
 
+![image](https://github.com/invopop/alpine-kit/assets/12644599/26e26461-644c-4b89-b3a0-018d6447beec)
+
 ### Common Styles
 
 The global stylesheet provides styling for common elements like inputs and buttons and complex component described above. Simply include it in your project, and use the styles accordingly.
@@ -98,3 +100,5 @@ The global stylesheet provides styling for common elements like inputs and butto
   <button class="ui-save-button" @click="saveConfig">Save</button>
 </div>
 ```
+
+![image](https://github.com/invopop/alpine-kit/assets/12644599/0c36dd98-894f-4352-8304-f259de5c91f9)

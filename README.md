@@ -27,6 +27,17 @@ Include the stylesheet for common elements, such as inputs and buttons.
 />
 ```
 
+#### 3. Include Inter font from Google Fonts
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+```
+
 ## Usage
 
 ### Components

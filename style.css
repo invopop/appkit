@@ -257,3 +257,8 @@ code {
   line-height: 18.2px;
   letter-spacing: -0.039px;
 }
+
+/* Helpers */
+.space-y-4 > *:not(:last-child) {
+  margin-bottom: 16px;
+}

@@ -87,7 +87,7 @@ button {
 .ui-checkbox {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 .ui-checkbox > input {
   font: inherit;
@@ -99,7 +99,8 @@ button {
   border: 1px solid #E9EBEB;
   width: 1rem;
   height: 1rem;
-  color: #169958
+  color: #169958;
+  flex-shrink: 0;
 }
 .ui-checkbox > input:focus {
   color: #169958

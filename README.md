@@ -118,6 +118,16 @@ The global stylesheet provides styling for common elements like inputs and butto
     </label>
   </div>
 
+  <!-- ui-checkbox class will apply styles for checkboxes -->
+  <div class="ui-checkbox">
+    <input
+      type="checkbox"
+      x-model="config.legal_terms_accepted"
+      id="legalTermsAccepted"
+    />
+    <label for="legalTermsAccepted"> Accept Legal Terms and Conditions </label>
+  </div>
+
   <!-- ui-save-button will apply styles to the submit button for the form -->
   <button class="ui-save-button" @click="saveConfig">Save</button>
 </div>

@@ -128,6 +128,16 @@ The global stylesheet provides styling for common elements like inputs and butto
     <label for="legalTermsAccepted"> Accept Legal Terms and Conditions </label>
   </div>
 
+  <!-- ui-tags will apply styles to a list of tags -->
+  <ul class="ui-tags">
+    <template x-for="(tag, idx) in config.tags" :key="idx">
+      <li>
+        <span x-text="tag"></span>
+        <button data-tooltip="remove tag" @click="remTag(idx)">x</button>
+      </li>
+    </template>
+  </ul>
+
   <!-- ui-save-button will apply styles to the submit button for the form -->
   <button class="ui-save-button" @click="saveConfig">Save</button>
 </div>

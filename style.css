@@ -61,6 +61,11 @@ td {
   margin-bottom: 16px;
 }
 
+/* Page container */
+.ui-page-container {
+  padding: 24px;
+}
+
 /* Input */
 .ui-input > label, label.ui-input {
   display: flex;

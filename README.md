@@ -23,7 +23,7 @@ Include the stylesheet for common elements, such as inputs and buttons.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.11/style.css"
+  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.12/style.css"
 />
 ```
 
@@ -140,6 +140,12 @@ The global stylesheet provides styling for common elements like inputs and butto
 
   <!-- ui-save-button will apply styles to the submit button for the form -->
   <button class="ui-save-button" @click="saveConfig">Save</button>
+
+  <!-- ui-button will apply styles to secondary buttons -->
+  <button class="ui-save-button" @click="saveConfig">Other action</button>
+
+  <!-- small button -->
+  <button type="button" class="ui-button ui-button-small" @click="addEmail('to')">Add<button>
 </div>
 ```
 

@@ -1,3 +1,5 @@
+[x-cloak] { display: none !important; }
+
 /* Reset Button styles */
 button {
     display: inline-flex;
@@ -12,6 +14,16 @@ button {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+h1 {
+  color: var(--Neutral-Solid-80, var(--Neutral-Solid-80, #0A0A0A));
+  font-family: Inter;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.567px;
 }
 
 /* Config Container */
@@ -330,6 +342,10 @@ code {
 }
 
 /* Helpers */
+.mt-4 {
+  margin-top: 16px;
+}
+
 .space-y-4 > *:not(:last-child) {
   margin-bottom: 16px;
 }

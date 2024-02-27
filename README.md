@@ -23,7 +23,7 @@ Include the stylesheet for common elements, such as inputs and buttons.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit/style.css"
+  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.11/style.css"
 />
 ```
 

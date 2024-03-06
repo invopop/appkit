@@ -184,7 +184,7 @@ label.ui-input > select:focus,
   position: relative;
   display: inline-flex;
   padding: 5px 12px;
-  align-self: center;
+  align-self: end;
   border-radius: 4px;
   background: #169958;
   color: var(--white-100, var(--white-100, #FFF));

@@ -54,7 +54,7 @@ td {
 }
 
 .ui-config-container > *:not(:last-child) {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 /* Page container */
@@ -69,11 +69,10 @@ td {
   justify-content: center;
   color: #7E7F7F;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18.2px;
-  letter-spacing: -0.039px;
+  line-height: 16px;
 }
 
 .ui-input > label > span, label.ui-input > span {
@@ -85,19 +84,19 @@ td {
 label.ui-input > input,
 label.ui-input > select,
 .ui-textarea {
-  padding: 5px 12px;
-  border-radius: 4px;
+  padding: 6px 10px;
+  border-radius: 6px;
   border: 1px solid #E9EBEB;
   background: #FFF;
   backdrop-filter: blur(2px);
   color: #0A0A0A;
   font-family: Inter;
-  font-size: 15px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 21.75px;
-  letter-spacing: -0.135px;
-  caret-color: #169958;
+  line-height: 20px;
+  letter-spacing: 0.07px;
+  caret-color: #008852;
   outline: none;
 }
 
@@ -126,6 +125,7 @@ label.ui-input > select:focus,
 .ui-textarea:focus
 {
   border: 1px solid rgba(22, 153, 88, 0.40);
+  box-shadow: 0px 0px 0px 2px rgba(22, 153, 88, 0.12);
 }
 
 .ui-textarea {

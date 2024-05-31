@@ -148,6 +148,7 @@ label.ui-input > select:focus,
   margin: 0;
   padding: 0;
   border-radius: 6px;
+  border: 1px solid #E9EBEB;
   width: 20px;
   height: 20px;
   color: #169958;

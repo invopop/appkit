@@ -139,7 +139,7 @@ label.ui-input > select:focus,
 .ui-checkbox {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 .ui-checkbox > input {
   font: inherit;
@@ -147,10 +147,9 @@ label.ui-input > select:focus,
   background-color: #fff;
   margin: 0;
   padding: 0;
-  border-radius: 0.25rem;
-  border: 1px solid #E9EBEB;
-  width: 1rem;
-  height: 1rem;
+  border-radius: 6px;
+  width: 20px;
+  height: 20px;
   color: #169958;
   flex-shrink: 0;
 }
@@ -166,13 +165,44 @@ label.ui-input > select:focus,
   background-repeat: no-repeat;
 }
 .ui-checkbox > label {
-  color: #0A0A0A;
+  color: #030712;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18.2px;
-  letter-spacing: -0.039px;
+  line-height: 20px;
+  letter-spacing: -0.07px;
+}
+.ui-checkbox > label > small {
+  color: #9CA3AF;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-left: 8px;
+}
+
+.ui-info {
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid #F3F4F6;
+  padding-left: 32px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #6B7280;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; 
+}
+.ui-info::before {
+  content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAxNiA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjEwIiByPSI2IiBzdHJva2U9IiM2QjcyODAiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik04IDcuNjk5OTVDOC40MTQyMSA3LjY5OTk1IDguNzUgNy4zNjQxNiA4Ljc1IDYuOTQ5OTVDOC43NSA2LjUzNTc0IDguNDE0MjEgNi4xOTk5NSA4IDYuMTk5OTVDNy41ODU3OSA2LjE5OTk1IDcuMjUgNi41MzU3NCA3LjI1IDYuOTQ5OTVDNy4yNSA3LjM2NDE2IDcuNTg1NzkgNy42OTk5NSA4IDcuNjk5OTVaTTcuNSAxMy4yTDcuNSAxMy43SDguNVYxMy4yTDguNSA5LjE5OTk1TDguNSA4LjY5OTk1SDcuNUw3LjUgOS4xOTk5NUw3LjUgMTMuMloiIGZpbGw9IiM2QjcyODAiLz4KPC9zdmc+Cg==");
+  position: absolute;
+  top: 8px;
+  left: 8px;
 }
 
 /* Save Button */

@@ -337,7 +337,6 @@ ul.ui-tags > li {
 .ui-image-picker {
   height: 48px;
   display: flex;
-  min-width: 352px;
   padding: 4px 12px 4px 4px;
   align-items: center;
   gap: 8px;

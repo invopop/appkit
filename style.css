@@ -31,16 +31,16 @@ h3 {
   margin-block-end: 0;
   color: #030712;
   font-family: Inter;
-  font-size: 15px;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 21.75px;
-  letter-spacing: -0.135px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.07px;
 }
 
 table {
   font-family: Inter;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 td {
@@ -373,13 +373,13 @@ body {
 }
 
 p {
-  color: #17191C;
+  color: #030712;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18.2px;
-  letter-spacing: -0.039px;
+  line-height: 20px;
+  letter-spacing: -0.07px;
   margin-block-start: 0;
   margin-block-end: 0;
 }
@@ -397,29 +397,27 @@ pre {
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: 'ss02' on;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 84;
-  line-height: 18.2px;
-  letter-spacing: -0.039px;
+  font-weight: 400;
+  line-height: 16px;
   overflow: scroll;
 }
 
 code {
   display: inline;
-  padding: 1px 2px;
+  padding: 2px 4px;
   border-radius: 4px;
-  border: 1px solid #EEEFF1;
-  background: #FBFBFB;
-  color: #17191C;
+  border: 1px solid #E5E7EB;
+  background: #F9FAFB;
+  color: #6B7280;
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: 'ss02' on;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
-  font-weight: 84;
-  line-height: 18.2px;
-  letter-spacing: -0.039px;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 /* Helpers */

@@ -483,3 +483,46 @@ code {
   align-items: center;
   justify-content: space-between;
 }
+
+datalist {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 62px;
+  margin-right: 2px;
+  max-height: 20em;
+  border-radius: 6px;
+  border: 1px solid #E5E7EB;
+  background: #FFF;
+  box-shadow: 0px 8px 30px 0px rgba(10, 10, 10, 0.12);
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10;
+  width: 97% !important;
+  padding: 4px;
+}
+
+datalist option {
+  border-radius: 4px;
+  color: #0A0A0A;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.07px;
+  background-color: white;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+datalist option:hover,
+datalist option:focus {
+  background-color: #F3F4F6;
+  outline: none;
+}
+
+input[type="text"]::-webkit-calendar-picker-indicator {
+    display: none; 
+    opacity: 0;
+}

@@ -239,7 +239,7 @@ label.ui-input > select:focus,
   font-style: normal;
   font-weight: 500;
   line-height: 20px;
-  align-self: center;
+  align-self: end;
 }
 
 /* Secondary Button */
@@ -366,7 +366,6 @@ ul.ui-tags > li {
 .ui-image-picker > img {
   display: flex;
   width: 40px;
-  height: 40px;
   justify-content: center;
   align-items: center;
   border-radius: 6px;

@@ -288,6 +288,9 @@ label.ui-input > select:focus,
   border-radius: 4px;
   line-height: 16px;
 }
+.ui-button-square {
+  padding: 8px;
+}
 
 /* Danger button */
 .ui-danger-button {

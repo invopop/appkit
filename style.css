@@ -175,7 +175,7 @@ label.ui-input > select:focus,
   line-height: 20px;
   letter-spacing: -0.07px;
 }
-.ui-checkbox > label > small {
+label > small {
   color: #9CA3AF;
   font-family: Inter;
   font-size: 12px;

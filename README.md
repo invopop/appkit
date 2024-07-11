@@ -23,7 +23,7 @@ Include the stylesheet for common elements, such as inputs and buttons.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.28/style.css"
+  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.29/style.css"
 />
 ```
 
@@ -89,7 +89,9 @@ The global stylesheet provides styling for common elements like inputs and butto
 - [Horizontal Separator](https://codepen.io/javiermartinez/pen/LYKEzeo)
 - [Section Title](https://codepen.io/javiermartinez/pen/jOjEGzG)
 - [Section Title with button](https://codepen.io/javiermartinez/pen/vYqEerO)
+- [Label for optional fields](https://codepen.io/javiermartinez/pen/BagyvyG)
 - [Helper label](https://codepen.io/javiermartinez/pen/RwzNLyW)
+- [Info Paragraph](https://codepen.io/javiermartinez/pen/MWMYZWW)
 - [Paragraph with highlighted words](https://codepen.io/javiermartinez/pen/dyBPVjb)
 - [Table](https://codepen.io/javiermartinez/pen/MWMYEBG)
 - [Code Snippet](https://codepen.io/javiermartinez/pen/YzoPrJX)

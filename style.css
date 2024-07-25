@@ -373,6 +373,9 @@ ul.ui-tags > li {
   align-items: center;
   border-radius: 6px;
 }
+.ui-image-picker > .ui-save-button {
+  align-self: center;
+}
 .ui-image-picker > span {
   flex: 1;
   color: #0A0A0A;

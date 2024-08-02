@@ -58,6 +58,10 @@ td {
   margin-bottom: 12px;
 }
 
+.ui-input > *:not(:last-child) {
+  margin-bottom: 12px;
+}
+
 /* Page container */
 .ui-page-container {
   padding: 24px;
@@ -508,7 +512,7 @@ datalist {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 62px;
+  margin-top: 70px;
   margin-right: 2px;
   max-height: 20em;
   border-radius: 6px;
@@ -552,7 +556,7 @@ datalist option:focus {
   background-position: center right 8px !important;
 }
 .ui-datalist-button-list {
-  margin-top: 30px !important; 
+  margin-top: 30px !important;
 }
 input:disabled {
   background-color: #FAFBFB !important;

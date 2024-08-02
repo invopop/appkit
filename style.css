@@ -59,7 +59,7 @@ td {
 }
 
 .ui-input > *:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 /* Page container */
@@ -512,7 +512,7 @@ datalist {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 70px;
+  margin-top: 62px;
   margin-right: 2px;
   max-height: 20em;
   border-radius: 6px;

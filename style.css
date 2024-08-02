@@ -80,6 +80,9 @@ td {
   margin-bottom: 8px;
 }
 
+.ui-input > input,
+.ui-input > select,
+.ui-input > textarea,
 .ui-input > label > input,
 .ui-input > label > select,
 label.ui-input > input,
@@ -100,8 +103,13 @@ label.ui-input > select,
   caret-color: #008852;
   outline: none;
 }
+.ui-input > input, .ui-input > select, .ui-input > textarea {
+  width: 100%
+}
 
-.ui-input > label > select, label.ui-input > select {
+.ui-input > select,
+.ui-input > label > select,
+label.ui-input > select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -110,6 +118,9 @@ label.ui-input > select,
   background-position: center right 8px;
 }
 
+.ui-input > input:hover,
+.ui-input > select:hover,
+.ui-input > textarea:hover,
 .ui-input > label > input:hover,
 label.ui-input > input:hover,
 .ui-input > label > select:hover,
@@ -119,6 +130,9 @@ label.ui-input > select:hover,
   border: 1px solid #CCCECE;
 }
 
+.ui-input > input:focus,
+.ui-input > select:focus,
+.ui-input > textarea:focus,
 .ui-input > label > input:focus,
 label.ui-input > input:focus,
 .ui-input > label > select:focus,
@@ -528,7 +542,54 @@ datalist option:focus {
   outline: none;
 }
 
-input[type="text"]::-webkit-calendar-picker-indicator {
-    display: none; 
-    opacity: 0;
+.ui-datalist-input::-webkit-calendar-picker-indicator {
+  display:none;
+  opacity: 0;
+}
+.ui-datalist-input {
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTAiIGN5PSIxMCIgcj0iOCIgZmlsbD0iI0YzRjVGNSIvPgo8cGF0aCBkPSJNNi41IDguMjUwMDRMMTAgMTEuNzVMMTMuNSA4LjI1IiBzdHJva2U9IiMwQTBBMEEiIHN0cm9rZS13aWR0aD0iMS4yIi8+Cjwvc3ZnPgo=') !important;
+  background-repeat: no-repeat !important;
+  background-position: center right 8px !important;
+}
+.ui-datalist-button-list {
+  margin-top: 30px !important; 
+}
+input:disabled {
+  background-color: #FAFBFB !important;
+}
+.contenteditable-textarea {
+  outline: none;
+  min-height: 80px;
+  padding: 6px 8px;
+  align-items: flex-start;
+  border-radius: 6px;
+  border: 1px solid #E9EBEB;
+  background: #FFF;
+  color: #0A0A0A;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.07px;
+}
+.contenteditable-textarea:focus {
+  border: 1px solid #008852;
+}
+.contenteditable-textarea > .tag {
+  display: inline-flex;
+  padding: 2px 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 4px;
+  border: 1px solid #E5E7EB;
+  background: #F9FAFB;
+  pointer-events: none;
+  color: #030712;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
 }

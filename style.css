@@ -55,7 +55,7 @@ td {
 }
 
 .ui-config-container > *:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .ui-input > *:not(:last-child) {
@@ -580,7 +580,7 @@ input:disabled {
 .contenteditable-textarea:focus {
   border: 1px solid #008852;
 }
-.contenteditable-textarea > .tag {
+.contenteditable-textarea .tag {
   display: inline-flex;
   padding: 2px 4px;
   justify-content: center;

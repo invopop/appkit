@@ -110,6 +110,19 @@ label.ui-input > select,
 .ui-input > input, .ui-input > select, .ui-input > textarea {
   width: 100%
 }
+.ui-input-error > input,
+.ui-input-error > select,
+.ui-input-error > textarea,
+.ui-input-error > label > input,
+.ui-input-error > label > select,
+label.ui-input-error > input,
+label.ui-input-error > select,
+.ui-textarea-error {
+  border: 1px solid rgba(236, 78, 70, 0.40) !important;
+  color: #EC4E46 !important;
+  caret-color: #EC4E46 !important;
+  box-shadow: none !important;
+}
 
 .ui-input > select,
 .ui-input > label > select,
@@ -213,6 +226,16 @@ label > small {
   font-weight: 400;
   line-height: 16px;
   min-height: 20px;
+}
+
+.ui-helper-error {
+  position: relative;
+  color: #EC4E46;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 .ui-info {

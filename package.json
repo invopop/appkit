@@ -1,7 +1,7 @@
 {
-  "name": "@invopop/appkit",
-  "version": "0.0.35",
-  "description": "A collection of reusable Templ components ready to use inside Invopop modules",
+  "name": "@invopop/alpine-kit",
+  "version": "0.0.34",
+  "description": "A collection of styles ready to use inside Invopop modules",
   "main": "style.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

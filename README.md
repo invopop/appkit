@@ -6,7 +6,7 @@ This repository contains a collection of reusable Templ components and a central
 
 ### Generate Templates
 
-GOBL HTML uses [templ](https://templ.guide/) to define a set of components in Go. To generate the templates, run:
+Appkit uses [templ](https://templ.guide/) to define a set of components in Go. To generate the templates, run:
 
 ```bash
 templ generate
@@ -19,7 +19,7 @@ During development, it can help massive to have hot reload to be able to make ch
 Air is a great tool to auto reload potentially any project, but works great with Go. Install with:
 
 ```bash
-go install github.com/cosmtrek/air@latest
+go install github.com/air-verse/air@latest
 ```
 
 The `.toml` is already configured and ready in this repository, so simply run:

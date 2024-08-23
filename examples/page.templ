@@ -1,0 +1,33 @@
+package examples
+
+// Page provides the main wrapper around content.
+templ Page() {
+	<html>
+		<head>
+			<title>Invopop - Appkit</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<!-- Inter font -->
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+			<!-- Alpine kit styles -->
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.24/style.css"/>
+			<script>
+        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.3/index.js'
+        </script>
+			<script src="https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js" defer></script>
+			<script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js" defer></script>
+		</head>
+		<body>
+			<main class="wrapper">
+				<!-- header pending -->
+				// { children... }
+				EXAMPLE2
+				<footer class="footer">
+					<!-- footer pending -->
+				</footer>
+			</main>
+		</body>
+	</html>
+}

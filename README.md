@@ -1,79 +1,34 @@
-# Invopop Alpine Kit
+# Invopop Appkit
 
-This repository contains a collection of reusable components for Alpine.js and a centralized stylesheet for common elements such as inputs and buttons.
+This repository contains a collection of reusable Templ components and a centralized stylesheet for common elements such as inputs and buttons.
 
-## Getting Started
+## Development
 
-### Prerequisites
+### Generate Templates
 
-- [Alpine.js v3](https://github.com/alpinejs/alpine)
+GOBL HTML uses [templ](https://templ.guide/) to define a set of components in Go. To generate the templates, run:
 
-#### 1. Include Alpine.js
-
-Make sure to include Alpine.js in your module. You can include it from a CDN.
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/alpinejs@v3"></script>
+```bash
+templ generate
 ```
 
-#### 2. Include common CSS stylesheet
+During development, it can help massive to have hot reload to be able to make changes and see them quickly. We're currently using Air for this:
 
-Include the stylesheet for common elements, such as inputs and buttons.
+#### Air
 
-```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.33/style.css"
-/>
+Air is a great tool to auto reload potentially any project, but works great with Go. Install with:
+
+```bash
+go install github.com/cosmtrek/air@latest
 ```
 
-#### 3. Include Inter font from Google Fonts
+The `.toml` is already configured and ready in this repository, so simply run:
 
-```html
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-  rel="stylesheet"
-/>
+```bash
+air
 ```
 
-## Usage
-
-### Components
-
-Browse through the components directory to find reusable Alpine.js components. Each component is self-contained, including logic and styles, and can be easily integrated into your module. Just copy and paste the html content. Make sure to replace any reference to placeholders to actual implementation.
-
-```html
-<!-- image-picker-html -->
-<div class="ui-image-picker">
-  <img x-show="config.logo_url" :src="config.logo_url" />
-  <div x-show="!config.logo_url" class="ui-logo-placeholder"></div>
-  <span x-text="loading ? 'Uploading...' : 'Select logo'"></span>
-  <button
-    class="ui-save-button ui-button-small"
-    @click="selectImage"
-    :disabled="loading"
-  >
-    Upload
-  </button>
-  <button
-    class="ui-secondary-button ui-button-small"
-    @click="deleteImage"
-    :disabled="loading || !config.logo_url"
-  >
-    Remove
-  </button>
-</div>
-```
-
-![image](https://github.com/invopop/alpine-kit/assets/12644599/475d4bc2-0d44-418d-9b76-e159bc034f91)
-
-### Common Styles
-
-The global stylesheet provides styling for common elements like inputs and buttons and complex component described above. Simply include it in your project, and use the styles accordingly.
-
-![image](https://github.com/invopop/alpine-kit/assets/12644599/fca008f2-538c-4817-ad7a-e99dea459dc7)
+Air is a bit more reliable at detecting file changes, especially for stylesheets. You'll always need to wait a few seconds before page reloads to give the system chance to recompile. A proxy is available with Air, but we didn't find it to be very reliable and was breaking with query parameters, it obvously also wouldn't work for PDF reloads.
 
 #### Code examples of common HTML elements
 

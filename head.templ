@@ -1,0 +1,28 @@
+package appkit
+
+templ GetCss() {
+	<!-- Inter font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com"/>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+	<!-- Alpine kit styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.24/style.css"/>
+}
+
+templ GetScripts() {
+	<script>
+        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.3/index.js'
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js" defer></script>
+	<script type="module">
+        import { install } from 'https://esm.run/@twind/core';
+        import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';
+        import presetTailwind from 'https://esm.run/@twind/preset-tailwind';
+        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit@0.2.44/dist/tw.theme.js'
+        install({
+            presets: [presetAutoprefix(), presetTailwind()],
+            theme
+        })
+    </script>
+}

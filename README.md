@@ -6,7 +6,7 @@ This repository contains a collection of reusable Templ components and a central
 
 ### Generate Templates
 
-GOBL HTML uses [templ](https://templ.guide/) to define a set of components in Go. To generate the templates, run:
+Appkit uses [templ](https://templ.guide/) to define a set of components in Go. To generate the templates, run:
 
 ```bash
 templ generate

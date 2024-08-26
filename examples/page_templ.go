@@ -41,7 +41,15 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"wrapper\"><div class=\"bg-danger-500 font-bold p-2\">Test</div></main></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false\n\t\t\t\t}\n\t\t\t}\"><div class=\"space-y-2 border-b pb-2 mb-2\"><h2>Input Text</h2><h3>Props</h3><label class=\"text-sm inline-flex items-center gap-2\">Label <input type=\"text\" class=\"py-1.5 px-2.5 border w-full rounded-md\" x-model=\"inputText.label\"></label> <label class=\"text-sm inline-flex items-center gap-2 whitespace-nowrap\">Error Text <input type=\"text\" class=\"py-1.5 px-2.5 border w-full rounded-md\" x-model=\"inputText.errorText\"></label> <span x-text=\"inputText.errorText\"></span> <label class=\"text-sm\">Disabled <input type=\"checkbox\" x-model=\"inputText.disabled\"></label></div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = appkit.InputText(appkit.InputTextProps{Label: "inputText.label", ErrorText: "inputText.errorText", Disabled: "inputText.disabled"}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -21,6 +21,7 @@ templ GetScripts() {
         import presetTailwind from 'https://esm.run/@twind/preset-tailwind';
         import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit@0.2.44/dist/tw.theme.js'
         install({
+            hash: false,
             presets: [presetAutoprefix(), presetTailwind()],
             theme
         })

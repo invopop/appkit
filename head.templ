@@ -5,8 +5,6 @@ templ GetCss() {
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-	<!-- Alpine kit styles -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.24/style.css"/>
 }
 
 templ GetScripts() {
@@ -19,7 +17,7 @@ templ GetScripts() {
         import { install } from 'https://esm.run/@twind/core';
         import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';
         import presetTailwind from 'https://esm.run/@twind/preset-tailwind';
-        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit@0.2.44/dist/tw.theme.js'
+        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'
         install({
             hash: false,
             presets: [presetAutoprefix(), presetTailwind()],

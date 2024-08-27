@@ -1,37 +1,55 @@
 package appkit
 
 type InputLabelProps struct {
-	Id    string
-	Label string
+	Id         string
+	Label      string
+	XBindLabel string
 }
 
 type InputTextProps struct {
-	Label     string
-	XModel    string
-	Disabled  string
-	ErrorText string
+	Label      string
+	Disabled   string
+	Error      string
+	Value      string
+	XModel     string
+	XBindError string
+	XBindLabel string
+	XBindValue string
 }
 
 templ InputLabel(props InputLabelProps) {
-	<label for={ props.Id } class="text-sm font-medium text-neutral-500 mb-2" x-text={ props.Label }></label>
+	<label
+		for={ props.Id }
+		class="text-sm font-medium text-neutral-500 mb-2"
+		if (props.XBindLabel != "") {
+			x-text={ props.XBindLabel }
+		}
+	>
+		if (props.Label != "") {
+			{ props.Label }
+		}
+	</label>
 }
 
 templ InputText(props InputTextProps) {
 	<div class="flex flex-col">
-		if props.Label != "" {
-			@InputLabel(InputLabelProps{Label: props.Label})
+		if props.Label != "" || props.XBindLabel != "" {
+			@InputLabel(InputLabelProps{Label: props.Label, XBindLabel: props.XBindLabel})
 		}
 		<input
 			type="text"
 			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base caret-accent-500 tracking-tight"
-			:class={ getInputTextClasses(props.ErrorText) }
+			:class={ props.getClasses() }
 			if props.XModel != "" {
 				x-model={ props.XModel }
 			}
+			if value := props.GetValue(); value != "" {
+				:value={ value }
+			}
 			:disabled={ props.Disabled }
 		/>
-		if props.ErrorText != "" {
-			@InputError(props.ErrorText)
+		if errorText := props.GetError(); errorText != "" {
+			@InputError(errorText)
 		}
 	</div>
 }
@@ -50,10 +68,26 @@ templ InputError(errorText string) {
 	</p>
 }
 
-func getInputTextClasses(condition string) string {
+func (itp InputTextProps) getClasses() string {
 	classes := "{" +
-		"'text-danger-500 border-danger-400 outline-danger-400': " + condition + "," +
-		"'border-neutral-200 hover:border-neutral-300 text-neutral-800 outline-none focus:border-accent-500': !" + condition +
+		"'text-danger-500 border-danger-400 outline-danger-400': " + itp.GetError() + "," +
+		"'border-neutral-200 hover:border-neutral-300 text-neutral-800 outline-none focus:border-accent-500': !" + itp.GetError() +
 		"}"
 	return classes
+}
+
+func (itp InputTextProps) GetValue() string {
+	if itp.XBindValue != "" {
+		return itp.XBindValue
+	}
+
+	return "'" + itp.Value + "'"
+}
+
+func (itp InputTextProps) GetError() string {
+	if itp.XBindError != "" {
+		return itp.XBindError
+	}
+
+	return "'" + itp.Error + "'"
 }

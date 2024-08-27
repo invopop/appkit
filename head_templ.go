@@ -26,7 +26,7 @@ func GetCss() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Inter font --><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap\" rel=\"stylesheet\"><!-- Alpine kit styles --><link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.24/style.css\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!-- Inter font --><link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"><link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin><link href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap\" rel=\"stylesheet\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -52,7 +52,7 @@ func GetScripts() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.3/index.js'\n    </script><script src=\"https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js\" defer></script><script src=\"https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js\" defer></script><script type=\"module\">\n        import { install } from 'https://esm.run/@twind/core';\n        import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';\n        import presetTailwind from 'https://esm.run/@twind/preset-tailwind';\n        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit@0.2.44/dist/tw.theme.js'\n        install({\n            hash: false,\n            presets: [presetAutoprefix(), presetTailwind()],\n            theme\n        })\n    </script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.3/index.js'\n    </script><script src=\"https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js\" defer></script><script src=\"https://cdn.jsdelivr.net/npm/datalist-css/dist/datalist-css.min.js\" defer></script><script type=\"module\">\n        import { install } from 'https://esm.run/@twind/core';\n        import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';\n        import presetTailwind from 'https://esm.run/@twind/preset-tailwind';\n        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'\n        install({\n            hash: false,\n            presets: [presetAutoprefix(), presetTailwind()],\n            theme\n        })\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

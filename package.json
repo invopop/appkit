@@ -1,23 +1,23 @@
 {
   "name": "@invopop/alpine-kit",
   "version": "0.0.34",
-  "description": "A collection of reusable Alpine components ready to use inside Invopop modules",
+  "description": "A collection of styles ready to use inside Invopop modules",
   "main": "style.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/invopop/alpine-kit.git"
+    "url": "git+https://github.com/invopop/appkit.git"
   },
   "keywords": [
-    "alpine",
+    "templ",
     "kit"
   ],
   "author": "Invopop",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/invopop/alpine-kit/issues"
+    "url": "https://github.com/invopop/appkit/issues"
   },
-  "homepage": "https://github.com/invopop/alpine-kit#readme"
+  "homepage": "https://github.com/invopop/appkit#readme"
 }

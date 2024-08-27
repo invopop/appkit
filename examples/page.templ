@@ -1,0 +1,44 @@
+package examples
+
+import "github.com/invopop/appkit"
+
+// Page provides the main wrapper around content.
+templ Page() {
+	<html>
+		<head>
+			<title>Invopop - Appkit</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			@appkit.GetCss()
+			@appkit.GetScripts()
+		</head>
+		<body>
+			<main
+				class="p-4"
+				x-data="{
+				inputText: {
+					label: 'Name',
+					errorText: '',
+					disabled: false
+				}
+			}"
+			>
+				<div class="space-y-2 border-b pb-2 mb-2">
+					<h2>Input Text</h2>
+					<h3>Props</h3>
+					<label class="text-sm inline-flex items-center gap-2">
+						Label <input type="text" class="py-1.5 px-2.5 border w-full rounded-md" x-model="inputText.label"/>
+					</label>
+					<label class="text-sm inline-flex items-center gap-2 whitespace-nowrap">
+						Error Text <input type="text" class="py-1.5 px-2.5 border w-full rounded-md" x-model="inputText.errorText"/>
+					</label>
+					<span x-text="inputText.errorText"></span>
+					<label class="text-sm">
+						Disabled <input type="checkbox" x-model="inputText.disabled"/>
+					</label>
+				</div>
+				@appkit.InputText(appkit.InputTextProps{Label: "inputText.label", ErrorText: "inputText.errorText", Disabled: "inputText.disabled"})
+			</main>
+		</body>
+	</html>
+}

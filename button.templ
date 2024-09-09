@@ -1,0 +1,35 @@
+package appkit
+
+type ButtonProps struct {
+	Type       string
+	Label      string
+    Variant    string
+	Disabled   string
+	OnClick    string
+}
+
+templ Button(props ButtonProps) {
+	<button
+        if props.Type != "" {
+            type={ props.Type }
+        }
+        if props.Disabled != "" {
+            disabled={ props.Disabled }
+        }
+        class="flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md"
+        :class={ props.getClasses() }
+        if props.OnClick != "" {
+            @click={ props.OnClick }
+        }
+    >
+        {props.Label}
+    </button>
+}
+
+func (bp ButtonProps) getClasses() string {
+	classes := "{" +
+		"'opacity-30 pointer-events-none': " + bp.Disabled + "," +
+		"'bg-workspace-accent text-white': '" + bp.Variant + "' === 'primary'" +
+		"}"
+	return classes
+}

@@ -5,8 +5,17 @@ templ GetCss() {
 	<link rel="preconnect" href="https://fonts.googleapis.com"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
-	<!-- Alpine kit styles -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@invopop/alpine-kit@0.0.24/style.css"/>
+    <style>
+    [x-cloak] { display: none !important; }
+    .ui-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMiIgeT0iMiIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iI0YzRjRGNiIvPgo8cGF0aCBkPSJNNi41IDguMjUwMDRMMTAgMTEuNzVMMTMuNSA4LjI1IiBzdHJva2U9IiMwMzA3MTIiIHN0cm9rZS13aWR0aD0iMS4xIi8+Cjwvc3ZnPg==');
+        background-repeat: no-repeat;
+        background-position: center right 6px;
+    }
+    </style>
 }
 
 templ GetScripts() {
@@ -19,7 +28,7 @@ templ GetScripts() {
         import { install } from 'https://esm.run/@twind/core';
         import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';
         import presetTailwind from 'https://esm.run/@twind/preset-tailwind';
-        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit@0.2.44/dist/tw.theme.js'
+        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'
         install({
             hash: false,
             presets: [presetAutoprefix(), presetTailwind()],

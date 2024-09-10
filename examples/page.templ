@@ -21,30 +21,149 @@ templ Page() {
 					errorText: '',
 					disabled: false,
 					value: ''
+				},
+				select: {
+					label: 'Name',
+					errorText: '',
+					disabled: false,
+					value: '',
+					options: ['', 'Sam', 'Juan', 'Javi', 'Luismi']
+				},
+				button: {
+					disabled: false,
 				}
 			}"
 			>
-				<div class="space-y-2 border-b pb-2 mb-2">
-					<h2>Input Text: <span x-text="inputText.value"></span></h2>
-					<h3>Props</h3>
-					<label class="text-sm inline-flex items-center gap-2">
-						Label <input type="text" class="py-1.5 px-2.5 border w-full rounded-md" x-model="inputText.label"/>
-					</label>
-					<label class="text-sm inline-flex items-center gap-2 whitespace-nowrap">
-						Error Text <input type="text" class="py-1.5 px-2.5 border w-full rounded-md" x-model="inputText.errorText"/>
-					</label>
-					<label class="text-sm">
-						Disabled <input type="checkbox" x-model="inputText.disabled"/>
-					</label>
+				// Input Text
+				@fieldConfig(&config{
+					Title: "Input Text",
+					XModel: "inputText.value",
+					Inputs: []input {
+						input{
+							Label: "Label",
+							Type: "text",
+							Xmodel: "inputText.label",
+						},
+						input{
+							Label: "Error Text",
+							Type: "text",
+							Xmodel: "inputText.errorText",
+						},
+						input{
+							Label: "Disabled",
+							Type: "checkbox",
+							Xmodel: "inputText.disabled",
+						},
+					},
+				})
+				
+				<div class="max-w-md">
+					@appkit.InputText(
+						&appkit.InputTextProps{
+							XBindLabel: "inputText.label",
+							XBindError: "inputText.errorText",
+							Disabled:   "inputText.disabled",
+							XModel:     "inputText.value",
+						})
 				</div>
-				@appkit.InputText(
-					appkit.InputTextProps{
-						XBindLabel: "inputText.label",
-						XBindError: "inputText.errorText",
-						Disabled:   "inputText.disabled",
-						XModel:     "inputText.value",
-					})
+
+				// Select
+				@fieldConfig(&config{
+					Title: "Select",
+					XModel: "select.value",
+					Inputs: []input {
+						input{
+							Label: "Label",
+							Type: "text",
+							Xmodel: "select.label",
+						},
+						input{
+							Label: "Error Text",
+							Type: "text",
+							Xmodel: "select.errorText",
+						},
+						input{
+							Label: "Disabled",
+							Type: "checkbox",
+							Xmodel: "select.disabled",
+						},
+					},
+				})
+				
+				<div class="max-w-md">
+					@appkit.Select(
+						&appkit.SelectProps{
+							XBindLabel: "select.label",
+							XBindError: "select.errorText",
+							Disabled:   "select.disabled",
+							XModel:     "select.value",
+						}) {
+							<template x-for="row in select.options" :key="row">
+								<option
+									:value="row"
+									x-text="row"
+								></option>
+							</template>
+						}
+				</div>
+
+				// Primary Button
+				@fieldConfig(&config{
+					Title: "Primary Button",
+					Inputs: []input {
+						input{
+							Label: "Disabled",
+							Type: "checkbox",
+							Xmodel: "button.disabled",
+						},
+					},
+				})
+				
+				<div class="max-w-md">
+					@appkit.Button(
+						&appkit.ButtonProps{
+							Variant: "primary",
+							Label: "Click Me",
+							Disabled:   "button.disabled",
+							OnClick:     "alert('Primary button clicked')",
+						})
+				</div>
 			</main>
 		</body>
 	</html>
+}
+
+type input struct {
+	Label string
+	Type string
+	Xmodel string
+}
+
+type config struct {
+	Title string
+	XModel string
+	Inputs []input
+}
+
+templ fieldConfig(conf *config) {
+	<hr class="mt-4">
+	<h2 class="my-4">{conf.Title}:
+		if conf.XModel != "" {
+			<span x-text={conf.XModel}></span>
+		}
+	</h2>
+	<div class="space-y-2 border border-black p-4 mb-4">
+		<h3>Props</h3>
+		for _, i := range conf.Inputs {
+			<label class="text-sm inline-flex items-center gap-2 whitespace-nowrap mr-2">
+			{i.Label} <input
+							type={i.Type}
+							if i.Type == "text" {
+								class="py-1.5 px-2.5 border w-full rounded-md"
+							}
+							x-model={i.Xmodel}
+						/>
+			</label>
+		}
+	</div>
 }

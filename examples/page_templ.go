@@ -41,12 +41,40 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t}\n\t\t\t}\"><div class=\"space-y-2 border-b pb-2 mb-2\"><h2>Input Text: <span x-text=\"inputText.value\"></span></h2><h3>Props</h3><label class=\"text-sm inline-flex items-center gap-2\">Label <input type=\"text\" class=\"py-1.5 px-2.5 border w-full rounded-md\" x-model=\"inputText.label\"></label> <label class=\"text-sm inline-flex items-center gap-2 whitespace-nowrap\">Error Text <input type=\"text\" class=\"py-1.5 px-2.5 border w-full rounded-md\" x-model=\"inputText.errorText\"></label> <label class=\"text-sm\">Disabled <input type=\"checkbox\" x-model=\"inputText.disabled\"></label></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t},\n\t\t\t\tselect: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\toptions: [&#39;&#39;, &#39;Sam&#39;, &#39;Juan&#39;, &#39;Javi&#39;, &#39;Luismi&#39;]\n\t\t\t\t},\n\t\t\t\tbutton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t}\n\t\t\t}\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = fieldConfig(&config{
+			Title:  "Input Text",
+			XModel: "inputText.value",
+			Inputs: []input{
+				input{
+					Label:  "Label",
+					Type:   "text",
+					Xmodel: "inputText.label",
+				},
+				input{
+					Label:  "Error Text",
+					Type:   "text",
+					Xmodel: "inputText.errorText",
+				},
+				input{
+					Label:  "Disabled",
+					Type:   "checkbox",
+					Xmodel: "inputText.disabled",
+				},
+			},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"max-w-md\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = appkit.InputText(
-			appkit.InputTextProps{
+			&appkit.InputTextProps{
 				XBindLabel: "inputText.label",
 				XBindError: "inputText.errorText",
 				Disabled:   "inputText.disabled",
@@ -55,7 +83,231 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</main></body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = fieldConfig(&config{
+			Title:  "Select",
+			XModel: "select.value",
+			Inputs: []input{
+				input{
+					Label:  "Label",
+					Type:   "text",
+					Xmodel: "select.label",
+				},
+				input{
+					Label:  "Error Text",
+					Type:   "text",
+					Xmodel: "select.errorText",
+				},
+				input{
+					Label:  "Disabled",
+					Type:   "checkbox",
+					Xmodel: "select.disabled",
+				},
+			},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"max-w-md\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Var2 := templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+			templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+			if !templ_7745c5c3_IsBuffer {
+				defer func() {
+					templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+					if templ_7745c5c3_Err == nil {
+						templ_7745c5c3_Err = templ_7745c5c3_BufErr
+					}
+				}()
+			}
+			ctx = templ.InitializeContext(ctx)
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<template x-for=\"row in select.options\" :key=\"row\"><option :value=\"row\" x-text=\"row\"></option></template>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			return templ_7745c5c3_Err
+		})
+		templ_7745c5c3_Err = appkit.Select(
+			&appkit.SelectProps{
+				XBindLabel: "select.label",
+				XBindError: "select.errorText",
+				Disabled:   "select.disabled",
+				XModel:     "select.value",
+			}).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = fieldConfig(&config{
+			Title: "Primary Button",
+			Inputs: []input{
+				input{
+					Label:  "Disabled",
+					Type:   "checkbox",
+					Xmodel: "button.disabled",
+				},
+			},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"max-w-md\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = appkit.Button(
+			&appkit.ButtonProps{
+				Variant:  "primary",
+				Label:    "Click Me",
+				Disabled: "button.disabled",
+				OnClick:  "alert('Primary button clicked')",
+			}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></main></body></html>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}
+
+type input struct {
+	Label  string
+	Type   string
+	Xmodel string
+}
+
+type config struct {
+	Title  string
+	XModel string
+	Inputs []input
+}
+
+func fieldConfig(conf *config) templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var3 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var3 == nil {
+			templ_7745c5c3_Var3 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<hr class=\"mt-4\"><h2 class=\"my-4\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var4 string
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(conf.Title)
+		if templ_7745c5c3_Err != nil {
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 150, Col: 29}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(": ")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		if conf.XModel != "" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span x-text=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(conf.XModel)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 152, Col: 28}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></span>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h2><div class=\"space-y-2 border border-black p-4 mb-4\"><h3>Props</h3>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		for _, i := range conf.Inputs {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<label class=\"text-sm inline-flex items-center gap-2 whitespace-nowrap mr-2\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var6 string
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(i.Label)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 159, Col: 11}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <input type=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var7 string
+			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(i.Type)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 160, Col: 19}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			if i.Type == "text" {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" class=\"py-1.5 px-2.5 border w-full rounded-md\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" x-model=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var8 string
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(i.Xmodel)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 164, Col: 24}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"></label>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

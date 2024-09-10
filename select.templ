@@ -1,7 +1,7 @@
 package appkit
 
 type SelectProps struct {
-	Id          string
+	ID          string
 	Label       string
 	Disabled    string
 	Error       string
@@ -13,20 +13,29 @@ type SelectProps struct {
 	OnChange    string
 }
 
-templ Select(props SelectProps) {
+templ Select(props *SelectProps) {
 	<div class="flex flex-col">
         if props.Label != "" || props.XBindLabel != "" {
-			@InputLabel(InputLabelProps{Id: props.Id, Label: props.Label, XBindLabel: props.XBindLabel})
+			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
         <select
-            id={props.Id}
+            id={props.ID}
             class="pl-2 py-1.5 border border-neutral-200 hover:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent focus:shadow-active"
+			if props.Disabled != "" {
+				:disabled={ props.Disabled }
+			}
             if props.XModel != "" {
 				x-model={ props.XModel }
+			}
+            if props.OnChange != "" {
+				@change={ props.OnChange }
 			}
         >
             { children... }
         </select>
+		if errorText := GetError(&ErrorProps{XBindError: props.XBindError, Error: props.Error}); errorText != "" {
+			@InputError(errorText)
+		}
     </div>
 }
 

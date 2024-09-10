@@ -1,0 +1,24 @@
+package appkit
+
+// PopupLayout provides the contents for pop-up pages meant to be shown inside
+// the Invopop Console
+templ PopupLayout() {
+	<html>
+		<head>
+			<title>Invopop - Portal</title>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			@GetCss()
+			@GetScripts()
+		</head>
+		<body>
+			// We hide the complete layout on purpose until twind is loaded
+			// overriding the display with !flex
+			<main style="display: none;" class="!block">
+				<!-- header pending -->
+				{ children... }
+				<!-- footer pending -->
+			</main>
+		</body>
+	</html>
+}

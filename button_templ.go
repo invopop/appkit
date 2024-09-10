@@ -16,7 +16,7 @@ type ButtonProps struct {
 	OnClick  string
 }
 
-func Button(props ButtonProps) templ.Component {
+func Button(props *ButtonProps) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -58,14 +58,14 @@ func Button(props ButtonProps) templ.Component {
 			}
 		}
 		if props.Disabled != "" {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" disabled=\"")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" :disabled=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.Disabled)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 17, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 17, Col: 38}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -76,7 +76,7 @@ func Button(props ButtonProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" class=\"flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md\" :class=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" class=\"flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md self-end\" :class=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -133,7 +133,7 @@ func Button(props ButtonProps) templ.Component {
 	})
 }
 
-func (bp ButtonProps) getClasses() string {
+func (bp *ButtonProps) getClasses() string {
 	classes := "{" +
 		"'opacity-30 pointer-events-none': " + bp.Disabled + "," +
 		"'bg-workspace-accent text-white': '" + bp.Variant + "' === 'primary'" +

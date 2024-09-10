@@ -1,28 +1,30 @@
 package appkit
 
 type InputLabelProps struct {
-	Id         string
+	ID         string
 	Label      string
 	XBindLabel string
 }
 
 type InputTextProps struct {
-	Id          string
+	ID          string
 	Label       string
 	Disabled    string
 	Error       string
+	Type        string
 	Value       string
 	XModel      string
 	XBindError  string
 	XBindLabel  string
 	XBindValue  string
 	OnChange    string
+	OnInput     string
 	Placeholder string
 }
 
-templ InputLabel(props InputLabelProps) {
+templ InputLabel(props *InputLabelProps) {
 	<label
-		for={ props.Id }
+		for={ props.ID }
 		class="text-sm font-medium text-neutral-500 mb-2"
 		if (props.XBindLabel != "") {
 			x-text={ props.XBindLabel }
@@ -34,14 +36,14 @@ templ InputLabel(props InputLabelProps) {
 	</label>
 }
 
-templ InputText(props InputTextProps) {
+templ InputText(props *InputTextProps) {
 	<div class="flex flex-col">
 		if props.Label != "" || props.XBindLabel != "" {
-			@InputLabel(InputLabelProps{Id: props.Id, Label: props.Label, XBindLabel: props.XBindLabel})
+			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
 		<input
-			id={props.Id}
-			type="text"
+			id={props.ID}
+			type={props.GetType()}
 			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base caret-workspace-accent-500 tracking-tight"
 			:class={ props.getClasses() }
 			if props.Placeholder != "" {
@@ -59,8 +61,11 @@ templ InputText(props InputTextProps) {
 			if props.OnChange != "" {
 				@change={props.OnChange}
 			}
+			if props.OnInput != "" {
+				@input={props.OnInput}
+			}
 		/>
-		if errorText := props.GetError(); errorText != "" {
+		if errorText := GetError(&ErrorProps{XBindError: props.XBindError, Error: props.Error}); errorText != "" {
 			@InputError(errorText)
 		}
 	</div>
@@ -81,7 +86,7 @@ templ InputError(errorText string) {
 }
 
 func (itp InputTextProps) getClasses() string {
-	err := itp.GetError()
+	err := GetError(&ErrorProps{XBindError: itp.XBindError, Error: itp.Error})
 	classes := "{" +
 		"'text-danger-500 border-danger-400 outline-danger-400': " + err + "," +
 		"'border-neutral-200 hover:border-neutral-300 text-neutral-800 outline-none focus:border-workspace-accent-500': !" + err +
@@ -89,7 +94,7 @@ func (itp InputTextProps) getClasses() string {
 	return classes
 }
 
-func (itp InputTextProps) GetValue() string {
+func (itp *InputTextProps) GetValue() string {
 	if itp.XBindValue != "" {
 		return itp.XBindValue
 	}
@@ -101,10 +106,10 @@ func (itp InputTextProps) GetValue() string {
 	return ""
 }
 
-func (itp InputTextProps) GetError() string {
-	if itp.XBindError != "" {
-		return itp.XBindError
+func (itp *InputTextProps) GetType() string {
+	if itp.Type != "" {
+		return itp.Type
 	}
 
-	return "false"
+	return "text"
 }

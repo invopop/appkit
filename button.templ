@@ -16,7 +16,7 @@ templ Button(props *ButtonProps) {
         if props.Disabled != "" {
             :disabled={ props.Disabled }
         }
-        class="flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md self-end"
+        class={ "ui-button flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md", templ.KV("bg-workspace-accent text-white self-end", props.Variant == "primary"), templ.KV("border border-neutral-200", props.Variant != "primary")}
         :class={ props.getClasses() }
         if props.OnClick != "" {
             @click={ props.OnClick }
@@ -27,9 +27,12 @@ templ Button(props *ButtonProps) {
 }
 
 func (bp *ButtonProps) getClasses() string {
-	classes := "{" +
-		"'opacity-30 pointer-events-none': " + bp.Disabled + "," +
-		"'bg-workspace-accent text-white': '" + bp.Variant + "' === 'primary'" +
+    disabled := bp.Disabled
+    if disabled == "" {
+        disabled = "false"
+    }
+
+	return "{" +
+		"'opacity-30 pointer-events-none': " + disabled +
 		"}"
-	return classes
 }

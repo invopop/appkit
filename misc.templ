@@ -1,5 +1,7 @@
 package appkit
 
-templ Paragraph(paragraph string) {
-    <p class="text-base text-neutral-800">{paragraph}</p>
+templ P() {
+    <p class="text-base text-neutral-800">
+        { children... }
+    </p>
 }

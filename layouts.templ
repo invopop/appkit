@@ -1,11 +1,15 @@
 package appkit
 
+type PopupLayoutProps struct {
+	Title string
+}
+
 // PopupLayout provides the contents for pop-up pages meant to be shown inside
 // the Invopop Console
-templ PopupLayout() {
+templ PopupLayout(props *PopupLayoutProps) {
 	<html>
 		<head>
-			<title>Invopop - Portal</title>
+			<title>{props.Title}</title>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 			@GetCss()

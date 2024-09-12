@@ -29,7 +29,10 @@ templ Page() {
 					value: '',
 					options: ['', 'Sam', 'Juan', 'Javi', 'Luismi']
 				},
-				button: {
+				defaultButton: {
+					disabled: false,
+				},
+				primaryButton: {
 					disabled: false,
 				}
 			}"
@@ -107,6 +110,27 @@ templ Page() {
 						}
 				</div>
 
+				// Default Button
+				@fieldConfig(&config{
+					Title: "Default Button",
+					Inputs: []input {
+						input{
+							Label: "Disabled",
+							Type: "checkbox",
+							Xmodel: "defaultButton.disabled",
+						},
+					},
+				})
+				
+				<div class="max-w-md">
+					@appkit.Button(
+						&appkit.ButtonProps{
+							Label: "Click Me",
+							Disabled:   "defaultButton.disabled",
+							OnClick:     "alert('Default button clicked')",
+						})
+				</div>
+
 				// Primary Button
 				@fieldConfig(&config{
 					Title: "Primary Button",
@@ -114,7 +138,7 @@ templ Page() {
 						input{
 							Label: "Disabled",
 							Type: "checkbox",
-							Xmodel: "button.disabled",
+							Xmodel: "primaryButton.disabled",
 						},
 					},
 				})
@@ -124,7 +148,7 @@ templ Page() {
 						&appkit.ButtonProps{
 							Variant: "primary",
 							Label: "Click Me",
-							Disabled:   "button.disabled",
+							Disabled:   "primaryButton.disabled",
 							OnClick:     "alert('Primary button clicked')",
 						})
 				</div>

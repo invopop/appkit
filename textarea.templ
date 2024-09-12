@@ -1,0 +1,91 @@
+package appkit
+
+type InputTextareaProps struct {
+	ID          string
+	Label       string
+    Contenteditable bool
+	Disabled    string
+	Error       string
+	Type        string
+	Value       string
+	XModel      string
+	XBindError  string
+	XBindLabel  string
+	XBindValue  string
+    XRef        string
+	OnInput     string
+	Placeholder string
+}
+
+templ Textarea(props *InputTextareaProps) {
+	<div class="flex flex-col">
+		if props.Label != "" || props.XBindLabel != "" {
+			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
+		}
+		<textarea
+            id={props.ID}
+            if props.XRef != "" {
+				x-ref={ props.XRef }
+			}
+            if props.Placeholder != "" {
+				placeholder={ props.Placeholder }
+			}
+            if props.XModel != "" {
+				x-model={ props.XModel }
+			}
+			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
+				:value={ value }
+			}
+            class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50"
+            :class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
+            if props.Disabled != "" {
+				:disabled={ props.Disabled }
+			}
+            rows="4"
+            if props.OnInput != "" {
+				@input={props.OnInput}
+			}
+        />
+		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
+			@InputError(errorText)
+		}
+	</div>
+}
+
+// TODO: Use the same component and find a way to render a div or a textarea dynamicly
+templ Contenteditable(props *InputTextareaProps) {
+	<div class="flex flex-col">
+		if props.Label != "" || props.XBindLabel != "" {
+			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
+		}
+		<div
+			tabindex="0"
+			role="textarea"
+			contenteditable="true"
+            id={props.ID}
+            if props.XRef != "" {
+				x-ref={ props.XRef }
+			}
+            if props.Placeholder != "" {
+				placeholder={ props.Placeholder }
+			}
+            if props.XModel != "" {
+				x-model={ props.XModel }
+			}
+			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
+				:value={ value }
+			}
+            class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 min-h-[80px]"
+            :class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
+            if props.Disabled != "" {
+				:disabled={ props.Disabled }
+			}
+            if props.OnInput != "" {
+				@input={props.OnInput}
+			}
+        ></div>
+		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
+			@InputError(errorText)
+		}
+	</div>
+}

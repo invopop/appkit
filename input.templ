@@ -44,15 +44,15 @@ templ InputText(props *InputTextProps) {
 		<input
 			id={props.ID}
 			type={props.GetType()}
-			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base caret-workspace-accent-500 tracking-tight"
-			:class={ props.getClasses() }
+			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight"
+			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
 			if props.Placeholder != "" {
 				placeholder={ props.Placeholder }
 			}
 			if props.XModel != "" {
 				x-model={ props.XModel }
 			}
-			if value := props.GetValue(); value != "" {
+			if value :=  GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 				:value={ value }
 			}
 			if props.Disabled != "" {
@@ -65,7 +65,7 @@ templ InputText(props *InputTextProps) {
 				@input={props.OnInput}
 			}
 		/>
-		if errorText := GetError(&ErrorProps{XBindError: props.XBindError, Error: props.Error}); errorText != "" {
+		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
 			@InputError(errorText)
 		}
 	</div>
@@ -83,27 +83,6 @@ templ InputError(errorText string) {
 		</svg>
 		<span x-text={ errorText }></span>
 	</p>
-}
-
-func (itp InputTextProps) getClasses() string {
-	err := GetError(&ErrorProps{XBindError: itp.XBindError, Error: itp.Error})
-	classes := "{" +
-		"'text-danger-500 border-danger-400 outline-danger-400': " + err + "," +
-		"'border-neutral-200 hover:border-neutral-300 text-neutral-800 outline-none focus:border-workspace-accent-500': !" + err +
-		"}"
-	return classes
-}
-
-func (itp *InputTextProps) GetValue() string {
-	if itp.XBindValue != "" {
-		return itp.XBindValue
-	}
-
-	if itp.Value != "" {
-		return "'" + itp.Value + "'"
-	}
-
-	return ""
 }
 
 func (itp *InputTextProps) GetType() string {

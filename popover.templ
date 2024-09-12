@@ -1,0 +1,40 @@
+package appkit
+
+type PopoverProps struct {
+    ID string
+    ButtonText string
+    OnClick string
+    OnSelect string
+    Options string
+    OptionsLabel string
+}
+
+templ Popover(props *PopoverProps) {
+    <div class="relative inline-block">
+        <button
+            popovertarget={props.ID}
+            if props.OnClick != "" {
+                @click={props.OnClick}
+            }
+        >{props.ButtonText}</button>
+
+        <div popover id={props.ID}></div>
+        <div class="hidden absolute left-0 top-4 popover-menu">
+            <ul>
+                <template x-for={ `option in ` + props.Options }>
+                    <li>
+                        <button @click={ props.OnSelect + `(option)`} x-text={ `option.` + props.GetLabel() }></button>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+}
+
+func (pp *PopoverProps) GetLabel() string {
+	if pp.OptionsLabel != "" {
+		return pp.OptionsLabel
+	}
+
+	return "label"
+}

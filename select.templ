@@ -20,7 +20,7 @@ templ Select(props *SelectProps) {
 		}
         <select
             id={props.ID}
-            class="pl-2 py-1.5 border border-neutral-200 hover:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent focus:shadow-active"
+            class="pl-2 py-1.5 border border-neutral-200 hover:enabled:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent focus:shadow-active disabled:bg-neutral-50"
 			if props.Disabled != "" {
 				:disabled={ props.Disabled }
 			}

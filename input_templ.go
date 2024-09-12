@@ -161,14 +161,14 @@ func InputText(props *InputTextProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base caret-workspace-accent-500 tracking-tight\" :class=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight\" :class=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.getClasses())
+		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(GetErrorClasses(&ErrorProps{props.XBindError, props.Error}))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `input.templ`, Line: 48, Col: 30}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `input.templ`, Line: 48, Col: 71}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -216,7 +216,7 @@ func InputText(props *InputTextProps) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		if value := props.GetValue(); value != "" {
+		if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" :value=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -296,7 +296,7 @@ func InputText(props *InputTextProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		if errorText := GetError(&ErrorProps{XBindError: props.XBindError, Error: props.Error}); errorText != "" {
+		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
 			templ_7745c5c3_Err = InputError(errorText).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
@@ -360,27 +360,6 @@ func InputError(errorText string) templ.Component {
 		}
 		return templ_7745c5c3_Err
 	})
-}
-
-func (itp InputTextProps) getClasses() string {
-	err := GetError(&ErrorProps{XBindError: itp.XBindError, Error: itp.Error})
-	classes := "{" +
-		"'text-danger-500 border-danger-400 outline-danger-400': " + err + "," +
-		"'border-neutral-200 hover:border-neutral-300 text-neutral-800 outline-none focus:border-workspace-accent-500': !" + err +
-		"}"
-	return classes
-}
-
-func (itp *InputTextProps) GetValue() string {
-	if itp.XBindValue != "" {
-		return itp.XBindValue
-	}
-
-	if itp.Value != "" {
-		return "'" + itp.Value + "'"
-	}
-
-	return ""
 }
 
 func (itp *InputTextProps) GetType() string {

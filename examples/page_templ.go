@@ -41,7 +41,7 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t},\n\t\t\t\tselect: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\toptions: [&#39;&#39;, &#39;Sam&#39;, &#39;Juan&#39;, &#39;Javi&#39;, &#39;Luismi&#39;]\n\t\t\t\t},\n\t\t\t\tbutton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t}\n\t\t\t}\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t},\n\t\t\t\tselect: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\toptions: [&#39;&#39;, &#39;Sam&#39;, &#39;Juan&#39;, &#39;Javi&#39;, &#39;Luismi&#39;]\n\t\t\t\t},\n\t\t\t\tdefaultButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t},\n\t\t\t\tprimaryButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t}\n\t\t\t}\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -148,12 +148,42 @@ func Page() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		templ_7745c5c3_Err = fieldConfig(&config{
+			Title: "Default Button",
+			Inputs: []input{
+				input{
+					Label:  "Disabled",
+					Type:   "checkbox",
+					Xmodel: "defaultButton.disabled",
+				},
+			},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"max-w-md\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = appkit.Button(
+			&appkit.ButtonProps{
+				Label:    "Click Me",
+				Disabled: "defaultButton.disabled",
+				OnClick:  "alert('Default button clicked')",
+			}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = fieldConfig(&config{
 			Title: "Primary Button",
 			Inputs: []input{
 				input{
 					Label:  "Disabled",
 					Type:   "checkbox",
-					Xmodel: "button.disabled",
+					Xmodel: "primaryButton.disabled",
 				},
 			},
 		}).Render(ctx, templ_7745c5c3_Buffer)
@@ -168,7 +198,7 @@ func Page() templ.Component {
 			&appkit.ButtonProps{
 				Variant:  "primary",
 				Label:    "Click Me",
-				Disabled: "button.disabled",
+				Disabled: "primaryButton.disabled",
 				OnClick:  "alert('Primary button clicked')",
 			}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
@@ -219,7 +249,7 @@ func fieldConfig(conf *config) templ.Component {
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(conf.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 150, Col: 29}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 174, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -237,7 +267,7 @@ func fieldConfig(conf *config) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(conf.XModel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 152, Col: 28}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 176, Col: 28}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -260,7 +290,7 @@ func fieldConfig(conf *config) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(i.Label)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 159, Col: 11}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 183, Col: 11}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -273,7 +303,7 @@ func fieldConfig(conf *config) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(i.Type)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 160, Col: 19}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 184, Col: 19}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -296,7 +326,7 @@ func fieldConfig(conf *config) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(i.Xmodel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 164, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 188, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {

@@ -1,38 +1,48 @@
 package appkit
 
 type ButtonProps struct {
-	Type       string
-	Label      string
-    Variant    string
-	Disabled   string
-	OnClick    string
+	Type          string
+	Label         string
+	Variant       string
+	Disabled      string
+	OnClick       string
+	PopoverTarget string
+	Small         bool
 }
 
 templ Button(props *ButtonProps) {
 	<button
-        if props.Type != "" {
-            type={ props.Type }
-        }
-        if props.Disabled != "" {
-            :disabled={ props.Disabled }
-        }
-        class={ "ui-button flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md", templ.KV("bg-workspace-accent text-white self-end", props.Variant == "primary"), templ.KV("border border-neutral-200", props.Variant != "primary")}
-        :class={ props.getClasses() }
-        if props.OnClick != "" {
-            @click={ props.OnClick }
-        }
-    >
-        {props.Label}
-    </button>
+		if props.Type != "" {
+			type={ props.Type }
+		}
+		if props.Disabled != "" {
+			:disabled={ props.Disabled }
+		}
+		class={ "ui-button flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 rounded-md",
+			templ.KV("bg-danger-500 text-white", props.Variant == "danger"),
+			templ.KV("bg-workspace-accent text-white self-end", props.Variant == "primary"),
+			templ.KV("border border-neutral-200", props.Variant == ""),
+			templ.KV("text-sm", props.Small),
+			templ.KV("text-base", !props.Small) }
+		:class={ props.getClasses() }
+		if props.OnClick != "" {
+			@click={ props.OnClick }
+		}
+		if props.PopoverTarget != "" {
+			popovertarget={ props.PopoverTarget }
+		}
+	>
+		{ props.Label }
+	</button>
 }
 
 func (bp *ButtonProps) getClasses() string {
-    disabled := bp.Disabled
-    if disabled == "" {
-        disabled = "false"
-    }
+	disabled := bp.Disabled
+	if disabled == "" {
+		disabled = "false"
+	}
 
-	return "{" +
-		"'opacity-30 pointer-events-none': " + disabled +
-		"}"
+	return `{
+				'opacity-30 pointer-events-none': ` + disabled + `
+			}`
 }

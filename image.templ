@@ -1,0 +1,55 @@
+package appkit
+
+type AvatarProps struct {
+	Name            string
+	PictureURL      string
+	XBindName       string
+	XBindPictureURL string
+}
+
+templ Avatar(props *AvatarProps) {
+	<div
+		class={
+			"h-5 w-5 bg-neutral-50 text-neutral-500 rounded flex items-center justify-center font-semibold relative",
+			templ.KV("border border-neutral-100", props.GetPictureURL() == ""),
+		}
+	>
+		if src := props.GetPictureURL(); src != "" {
+			<img x-show={ src } class="h-full w-full rounded object-cover" :src={ src } :alt={ props.GetName(false) }/>
+		} else {
+			<p class="uppercase" x-text={ props.GetName(true) } :title={ props.GetName(false) }></p>
+		}
+	</div>
+}
+
+func (ap *AvatarProps) GetPictureURL() string {
+	if ap.XBindPictureURL != "" {
+		return ap.XBindPictureURL
+	}
+
+	if ap.PictureURL != "" {
+		return "'" + ap.PictureURL + "'"
+	}
+
+	return ""
+}
+
+func (ap *AvatarProps) GetName(capital bool) string {
+	if ap.XBindName != "" {
+		if capital {
+			return ap.XBindName + `?.charAt(0)`
+		}
+
+		return ap.XBindName
+	}
+
+	if ap.Name != "" {
+		if capital {
+			return "'" + ap.Name[0:1] + "'"
+		}
+
+		return "'" + ap.Name + "'"
+	}
+
+	return ""
+}

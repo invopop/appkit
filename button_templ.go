@@ -9,11 +9,13 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 type ButtonProps struct {
-	Type     string
-	Label    string
-	Variant  string
-	Disabled string
-	OnClick  string
+	Type          string
+	Label         string
+	Variant       string
+	Disabled      string
+	OnClick       string
+	PopoverTarget string
+	Small         bool
 }
 
 func Button(props *ButtonProps) templ.Component {
@@ -34,7 +36,12 @@ func Button(props *ButtonProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{"ui-button flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 text-base rounded-md", templ.KV("bg-workspace-accent text-white self-end", props.Variant == "primary"), templ.KV("border border-neutral-200", props.Variant != "primary")}
+		var templ_7745c5c3_Var2 = []any{"ui-button flex items-center justify-center font-medium font-sans relative group tracking-tight px-2 py-1 rounded-md",
+			templ.KV("bg-danger-500 text-white", props.Variant == "danger"),
+			templ.KV("bg-workspace-accent text-white self-end", props.Variant == "primary"),
+			templ.KV("border border-neutral-200", props.Variant == ""),
+			templ.KV("text-sm", props.Small),
+			templ.KV("text-base", !props.Small)}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -51,7 +58,7 @@ func Button(props *ButtonProps) templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(props.Type)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 14, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 16, Col: 20}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -70,7 +77,7 @@ func Button(props *ButtonProps) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Disabled)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 17, Col: 38}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 19, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -101,7 +108,7 @@ func Button(props *ButtonProps) templ.Component {
 		var templ_7745c5c3_Var6 string
 		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(props.getClasses())
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 20, Col: 35}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 27, Col: 29}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {
@@ -119,9 +126,28 @@ func Button(props *ButtonProps) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(props.OnClick)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 22, Col: 34}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 29, Col: 25}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		if props.PopoverTarget != "" {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" popovertarget=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var8 string
+			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.PopoverTarget)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 32, Col: 38}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -134,12 +160,12 @@ func Button(props *ButtonProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		var templ_7745c5c3_Var8 string
-		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.Label)
+		var templ_7745c5c3_Var9 string
+		templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(props.Label)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 25, Col: 20}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `button.templ`, Line: 35, Col: 15}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -157,7 +183,7 @@ func (bp *ButtonProps) getClasses() string {
 		disabled = "false"
 	}
 
-	return "{" +
-		"'opacity-30 pointer-events-none': " + disabled +
-		"}"
+	return `{
+				'opacity-30 pointer-events-none': ` + disabled + `
+			}`
 }

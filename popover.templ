@@ -1,34 +1,33 @@
 package appkit
 
 type PopoverProps struct {
-    ID string
-    ButtonText string
-    OnClick string
-    OnSelect string
-    Options string
-    OptionsLabel string
+	ID           string
+	ButtonText   string
+	OnClick      string
+	OnSelect     string
+	Options      string
+	OptionsLabel string
 }
 
 templ Popover(props *PopoverProps) {
-    <div class="relative inline-block">
-        <button
-            popovertarget={props.ID}
-            if props.OnClick != "" {
-                @click={props.OnClick}
-            }
-        >{props.ButtonText}</button>
-
-        <div popover id={props.ID}></div>
-        <div class="hidden absolute left-0 top-4 popover-menu">
-            <ul>
-                <template x-for={ `option in ` + props.Options }>
-                    <li>
-                        <button @click={ props.OnSelect + `(option)`} x-text={ `option.` + props.GetLabel() }></button>
-                    </li>
-                </template>
-            </ul>
-        </div>
-    </div>
+	<div class="relative inline-block">
+		@Button(&ButtonProps{
+			Label:         props.ButtonText,
+			OnClick:       props.OnClick,
+			PopoverTarget: props.ID,
+			Small:         true,
+		})
+		<div popover id={ props.ID }></div>
+		<div class="hidden absolute left-0 top-7 popover-menu border border-neutral-200 rounded-md px-1 py-0.5 w-full">
+			<ul>
+				<template x-for={ `option in ` + props.Options }>
+					<li class="px-2 py-1.5 font-medium text-base text-neutral-800 w-full rounded hover:bg-neutral-100">
+						<button class="w-full text-left" @click={ props.OnSelect + `(option)` } x-text={ `option.` + props.GetLabel() }></button>
+					</li>
+				</template>
+			</ul>
+		</div>
+	</div>
 }
 
 func (pp *PopoverProps) GetLabel() string {

@@ -29,6 +29,13 @@ templ Page() {
 					value: '',
 					options: ['', 'Sam', 'Juan', 'Javi', 'Luismi']
 				},
+				textarea: {
+					label: 'Name',
+					errorText: '',
+					disabled: false,
+					value: '',
+					rows: '4'
+				},
 				defaultButton: {
 					disabled: false,
 				},
@@ -37,29 +44,37 @@ templ Page() {
 				}
 			}"
 			>
+				// Info
+				@fieldConfig(&config{
+					Title: "Info Text",
+				})
+				<div class="max-w-md">
+					@appkit.Info() {
+						You can generate an API key in the Resend console
+					}
+				</div>
 				// Input Text
 				@fieldConfig(&config{
-					Title: "Input Text",
+					Title:  "Input Text",
 					XModel: "inputText.value",
-					Inputs: []input {
+					Inputs: []input{
 						input{
-							Label: "Label",
-							Type: "text",
+							Label:  "Label",
+							Type:   "text",
 							Xmodel: "inputText.label",
 						},
 						input{
-							Label: "Error Text",
-							Type: "text",
+							Label:  "Error Text",
+							Type:   "text",
 							Xmodel: "inputText.errorText",
 						},
 						input{
-							Label: "Disabled",
-							Type: "checkbox",
+							Label:  "Disabled",
+							Type:   "checkbox",
 							Xmodel: "inputText.disabled",
 						},
 					},
 				})
-				
 				<div class="max-w-md">
 					@appkit.InputText(
 						&appkit.InputTextProps{
@@ -69,30 +84,28 @@ templ Page() {
 							XModel:     "inputText.value",
 						})
 				</div>
-
 				// Select
 				@fieldConfig(&config{
-					Title: "Select",
+					Title:  "Select",
 					XModel: "select.value",
-					Inputs: []input {
+					Inputs: []input{
 						input{
-							Label: "Label",
-							Type: "text",
+							Label:  "Label",
+							Type:   "text",
 							Xmodel: "select.label",
 						},
 						input{
-							Label: "Error Text",
-							Type: "text",
+							Label:  "Error Text",
+							Type:   "text",
 							Xmodel: "select.errorText",
 						},
 						input{
-							Label: "Disabled",
-							Type: "checkbox",
+							Label:  "Disabled",
+							Type:   "checkbox",
 							Xmodel: "select.disabled",
 						},
 					},
 				})
-				
 				<div class="max-w-md">
 					@appkit.Select(
 						&appkit.SelectProps{
@@ -101,55 +114,95 @@ templ Page() {
 							Disabled:   "select.disabled",
 							XModel:     "select.value",
 						}) {
-							<template x-for="row in select.options" :key="row">
-								<option
-									:value="row"
-									x-text="row"
-								></option>
-							</template>
-						}
+						<template x-for="row in select.options" :key="row">
+							<option
+								:value="row"
+								x-text="row"
+							></option>
+						</template>
+					}
 				</div>
-
+				// Textarea
+				@fieldConfig(&config{
+					Title:  "Textarea",
+					XModel: "textarea.value",
+					Inputs: []input{
+						input{
+							Label:  "Label",
+							Type:   "text",
+							Xmodel: "textarea.label",
+						},
+						input{
+							Label:  "Error Text",
+							Type:   "text",
+							Xmodel: "textarea.errorText",
+						},
+						input{
+							Label:  "Rows",
+							Type:   "number",
+							Xmodel: "textarea.rows",
+						},
+						input{
+							Label:  "Disabled",
+							Type:   "checkbox",
+							Xmodel: "textarea.disabled",
+						},
+					},
+				})
+				<div class="max-w-md">
+					@appkit.Textarea(
+						&appkit.InputTextareaProps{
+							XBindLabel: "textarea.label",
+							XBindError: "textarea.errorText",
+							XBindRows:  "textarea.rows",
+							Disabled:   "textarea.disabled",
+							XModel:     "textarea.value",
+						}) {
+						<template x-for="row in select.options" :key="row">
+							<option
+								:value="row"
+								x-text="row"
+							></option>
+						</template>
+					}
+				</div>
 				// Default Button
 				@fieldConfig(&config{
 					Title: "Default Button",
-					Inputs: []input {
+					Inputs: []input{
 						input{
-							Label: "Disabled",
-							Type: "checkbox",
+							Label:  "Disabled",
+							Type:   "checkbox",
 							Xmodel: "defaultButton.disabled",
 						},
 					},
 				})
-				
 				<div class="max-w-md">
 					@appkit.Button(
 						&appkit.ButtonProps{
-							Label: "Click Me",
-							Disabled:   "defaultButton.disabled",
-							OnClick:     "alert('Default button clicked')",
+							Label:    "Click Me",
+							Disabled: "defaultButton.disabled",
+							OnClick:  "alert('Default button clicked')",
 						})
 				</div>
-
 				// Primary Button
 				@fieldConfig(&config{
 					Title: "Primary Button",
-					Inputs: []input {
+					Inputs: []input{
 						input{
-							Label: "Disabled",
-							Type: "checkbox",
+							Label:  "Disabled",
+							Type:   "checkbox",
 							Xmodel: "primaryButton.disabled",
 						},
 					},
 				})
-				
 				<div class="max-w-md">
 					@appkit.Button(
 						&appkit.ButtonProps{
-							Variant: "primary",
-							Label: "Click Me",
-							Disabled:   "primaryButton.disabled",
-							OnClick:     "alert('Primary button clicked')",
+							Variant:  "primary",
+							Label:    "Click Me",
+							Disabled: "primaryButton.disabled",
+							OnClick:  "alert('Primary button clicked')",
 						})
 				</div>
 			</main>
@@ -158,36 +211,39 @@ templ Page() {
 }
 
 type input struct {
-	Label string
-	Type string
+	Label  string
+	Type   string
 	Xmodel string
 }
 
 type config struct {
-	Title string
+	Title  string
 	XModel string
 	Inputs []input
 }
 
 templ fieldConfig(conf *config) {
-	<hr class="mt-4">
-	<h2 class="my-4">{conf.Title}:
+	<hr class="mt-4"/>
+	<h2 class="my-4">
+		{ conf.Title }:
 		if conf.XModel != "" {
-			<span x-text={conf.XModel}></span>
+			<span x-text={ conf.XModel }></span>
 		}
 	</h2>
-	<div class="space-y-2 border border-black p-4 mb-4">
-		<h3>Props</h3>
-		for _, i := range conf.Inputs {
-			<label class="text-sm inline-flex items-center gap-2 whitespace-nowrap mr-2">
-			{i.Label} <input
-							type={i.Type}
-							if i.Type == "text" {
-								class="py-1.5 px-2.5 border w-full rounded-md"
-							}
-							x-model={i.Xmodel}
-						/>
-			</label>
-		}
-	</div>
+	if conf.Inputs != nil {
+		<div class="space-y-2 border border-black p-4 mb-4">
+			<h3>Props</h3>
+			for _, i := range conf.Inputs {
+				<label class="text-sm inline-flex items-center gap-2 whitespace-nowrap mr-2">
+					{ i.Label } <input
+	type={ i.Type }
+	if i.Type == "text" || i.Type == "number" {
+		class="py-1.5 px-2.5 border w-full rounded-md"
+	}
+	x-model={ i.Xmodel }
+/>
+				</label>
+			}
+		</div>
+	}
 }

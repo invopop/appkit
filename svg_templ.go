@@ -33,3 +33,29 @@ func ErrorIcon() templ.Component {
 		return templ_7745c5c3_Err
 	})
 }
+
+func InfoIcon() templ.Component {
+	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
+		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
+		if !templ_7745c5c3_IsBuffer {
+			defer func() {
+				templ_7745c5c3_BufErr := templruntime.ReleaseBuffer(templ_7745c5c3_Buffer)
+				if templ_7745c5c3_Err == nil {
+					templ_7745c5c3_Err = templ_7745c5c3_BufErr
+				}
+			}()
+		}
+		ctx = templ.InitializeContext(ctx)
+		templ_7745c5c3_Var2 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var2 == nil {
+			templ_7745c5c3_Var2 = templ.NopComponent
+		}
+		ctx = templ.ClearChildren(ctx)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"8\" cy=\"8\" r=\"6\" stroke=\"currentColor\"></circle> <path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8 5.7002C8.41421 5.7002 8.75 5.36441 8.75 4.9502C8.75 4.53598 8.41421 4.2002 8 4.2002C7.58579 4.2002 7.25 4.53598 7.25 4.9502C7.25 5.36441 7.58579 5.7002 8 5.7002ZM7.5 11.2002L7.5 11.7002H8.5V11.2002L8.5 7.2002L8.5 6.7002H7.5L7.5 7.2002L7.5 11.2002Z\" fill=\"currentColor\"></path></svg>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		return templ_7745c5c3_Err
+	})
+}

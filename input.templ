@@ -42,8 +42,8 @@ templ InputText(props *InputTextProps) {
 			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
 		<input
-			id={props.ID}
-			type={props.GetType()}
+			id={ props.ID }
+			type={ props.GetType() }
 			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight"
 			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
 			if props.Placeholder != "" {
@@ -59,10 +59,10 @@ templ InputText(props *InputTextProps) {
 				:disabled={ props.Disabled }
 			}
 			if props.OnChange != "" {
-				@change={props.OnChange}
+				@change={ props.OnChange }
 			}
 			if props.OnInput != "" {
-				@input={props.OnInput}
+				@input={ props.OnInput }
 			}
 		/>
 		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {

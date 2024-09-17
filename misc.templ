@@ -11,3 +11,12 @@ templ Subtitle() {
 		{ children... }
 	</h2>
 }
+
+templ Info() {
+	<p class="text-sm text-neutral-500 flex items-center gap-1">
+		<span>
+			@InfoIcon()
+		</span>
+		{ children... }
+	</p>
+}

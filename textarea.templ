@@ -1,20 +1,24 @@
 package appkit
 
+import "strconv"
+
 type InputTextareaProps struct {
-	ID          string
-	Label       string
-    Contenteditable bool
-	Disabled    string
-	Error       string
-	Type        string
-	Value       string
-	XModel      string
-	XBindError  string
-	XBindLabel  string
-	XBindValue  string
-    XRef        string
-	OnInput     string
-	Placeholder string
+	ID              string
+	Label           string
+	Contenteditable bool
+	Disabled        string
+	Error           string
+	Rows            int
+	Type            string
+	Value           string
+	XModel          string
+	XBindError      string
+	XBindLabel      string
+	XBindRows       string
+	XBindValue      string
+	XRef            string
+	OnInput         string
+	Placeholder     string
 }
 
 templ Textarea(props *InputTextareaProps) {
@@ -23,29 +27,29 @@ templ Textarea(props *InputTextareaProps) {
 			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
 		<textarea
-            id={props.ID}
-            if props.XRef != "" {
+			id={ props.ID }
+			if props.XRef != "" {
 				x-ref={ props.XRef }
 			}
-            if props.Placeholder != "" {
+			if props.Placeholder != "" {
 				placeholder={ props.Placeholder }
 			}
-            if props.XModel != "" {
+			if props.XModel != "" {
 				x-model={ props.XModel }
 			}
 			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 				:value={ value }
 			}
-            class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50"
-            :class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
-            if props.Disabled != "" {
+			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50"
+			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
+			if props.Disabled != "" {
 				:disabled={ props.Disabled }
 			}
-            rows="4"
-            if props.OnInput != "" {
-				@input={props.OnInput}
+			:rows={ props.getRows() }
+			if props.OnInput != "" {
+				@input={ props.OnInput }
 			}
-        />
+		></textarea>
 		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
 			@InputError(errorText)
 		}
@@ -62,30 +66,42 @@ templ Contenteditable(props *InputTextareaProps) {
 			tabindex="0"
 			role="textarea"
 			contenteditable="true"
-            id={props.ID}
-            if props.XRef != "" {
+			id={ props.ID }
+			if props.XRef != "" {
 				x-ref={ props.XRef }
 			}
-            if props.Placeholder != "" {
+			if props.Placeholder != "" {
 				placeholder={ props.Placeholder }
 			}
-            if props.XModel != "" {
+			if props.XModel != "" {
 				x-model={ props.XModel }
 			}
 			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 				:value={ value }
 			}
-            class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 min-h-[80px]"
-            :class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
-            if props.Disabled != "" {
+			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 min-h-[80px]"
+			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
+			if props.Disabled != "" {
 				:disabled={ props.Disabled }
 			}
-            if props.OnInput != "" {
-				@input={props.OnInput}
+			if props.OnInput != "" {
+				@input={ props.OnInput }
 			}
-        ></div>
+		></div>
 		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {
 			@InputError(errorText)
 		}
 	</div>
+}
+
+func (it InputTextareaProps) getRows() string {
+	if it.XBindRows != "" {
+		return it.XBindRows
+	}
+
+	if it.Rows > 0 {
+		return strconv.Itoa(it.Rows)
+	}
+
+	return "4"
 }

@@ -22,3 +22,15 @@ templ Info() {
 		</div>
 	</div>
 }
+
+templ Code() {
+	<div class="border border-neutral-200 bg-neutral-50 rounded text-sm text-neutral-500 px-1 py-0.5 inline">
+		{ children... }
+	</div>
+}
+
+templ Prose() {
+	<div class="prose prose-slate mx-auto lg:prose-lg">
+		{ children... }
+	</div>
+}

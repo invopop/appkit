@@ -41,6 +41,7 @@ func (s *serveOpts) runE(cmd *cobra.Command, _ []string) error {
 	e := echo.New()
 
 	e.GET("/", s.index)
+	e.GET("/prose", s.prose)
 
 	var startErr error
 	go func() {
@@ -64,6 +65,11 @@ func (s *serveOpts) runE(cmd *cobra.Command, _ []string) error {
 // index shows the example page that will render all the components
 func (s *serveOpts) index(c echo.Context) error {
 	return render(c, http.StatusOK, examples.Page())
+}
+
+// prose shows the prose example page with lots of possible combinations
+func (s *serveOpts) prose(c echo.Context) error {
+	return render(c, http.StatusOK, examples.Prose())
 }
 
 // render provides a wrapper around the component to make it nice to render.

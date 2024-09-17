@@ -13,10 +13,12 @@ templ Subtitle() {
 }
 
 templ Info() {
-	<p class="text-sm text-neutral-500 flex items-center gap-1">
-		<span>
+	<div class="text-sm text-neutral-500 flex items-center gap-1">
+		<div>
 			@InfoIcon()
-		</span>
-		{ children... }
-	</p>
+		</div>
+		<div class="ui-info-content flex-1 flex items-center gap-0.5">
+			{ children... }
+		</div>
+	</div>
 }

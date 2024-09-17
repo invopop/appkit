@@ -51,7 +51,7 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"max-w-md\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -67,7 +67,7 @@ func Page() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("You can generate an API key in the Resend console")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("The Silo Entry ID of the new document will be available in the <code>connected-silo-entry-id</code> shared meta field.")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

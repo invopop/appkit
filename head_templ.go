@@ -8,7 +8,7 @@ package appkit
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func GetCss() templ.Component {
+func DefaultCSS() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -34,7 +34,7 @@ func GetCss() templ.Component {
 	})
 }
 
-func GetScripts() templ.Component {
+func DefaultScripts() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templruntime.GetBuffer(templ_7745c5c3_W)
@@ -52,7 +52,7 @@ func GetScripts() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.3/index.js'\n    </script><script src=\"https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js\" defer></script><script type=\"module\">\n        import { install } from 'https://esm.run/@twind/core';\n        import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';\n        import presetTailwind from 'https://esm.run/@twind/preset-tailwind';\n        import presetTypography from 'https://esm.run/@twind/preset-typography';\n        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'\n        install({\n            hash: false,\n            presets: [presetAutoprefix(), presetTailwind(), presetTypography()],\n            theme\n        })\n    </script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        const CONSOLE_SDK_URL = 'https://cdn.jsdelivr.net/npm/@invopop/console-ui-sdk@0.0.4/index.js'\n    </script><script src=\"https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js\" defer></script><script type=\"module\">\n        import { install } from 'https://esm.run/@twind/core';\n        import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';\n        import presetTailwind from 'https://esm.run/@twind/preset-tailwind';\n        import presetTypography from 'https://esm.run/@twind/preset-typography';\n        import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'\n        install({\n            hash: false,\n            presets: [presetAutoprefix(), presetTailwind(), presetTypography()],\n            theme\n        })\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

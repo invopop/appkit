@@ -50,7 +50,11 @@ templ Page() {
 				})
 				<div>
 					@appkit.Info() {
-						The Silo Entry ID of the new document will be available in the <code>connected-silo-entry-id</code> shared meta field.
+						The Silo Entry ID of the new document will be available in the
+						@appkit.Code() {
+							connected-silo-entry-id
+						}
+						shared meta field.
 					}
 				</div>
 				// Input Text

@@ -90,10 +90,11 @@ templ GetScripts() {
         import { install } from 'https://esm.run/@twind/core';
         import presetAutoprefix from 'https://esm.run/@twind/preset-autoprefix';
         import presetTailwind from 'https://esm.run/@twind/preset-tailwind';
+        import presetTypography from 'https://esm.run/@twind/preset-typography';
         import theme from 'https://cdn.jsdelivr.net/npm/@invopop/ui-kit/dist/tw.theme.js'
         install({
             hash: false,
-            presets: [presetAutoprefix(), presetTailwind()],
+            presets: [presetAutoprefix(), presetTailwind(), presetTypography()],
             theme
         })
     </script>

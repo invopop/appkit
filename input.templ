@@ -37,7 +37,7 @@ templ InputLabel(props *InputLabelProps) {
 }
 
 templ InputText(props *InputTextProps) {
-	<div class="flex flex-col">
+	<div class="flex flex-col group">
 		if props.Label != "" || props.XBindLabel != "" {
 			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}

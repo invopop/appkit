@@ -39,7 +39,7 @@ func Select(props *SelectProps) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col group\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -62,7 +62,7 @@ func Select(props *SelectProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"pl-2 py-1.5 border border-neutral-200 hover:enabled:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent focus:shadow-active disabled:bg-neutral-50\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"pl-2 py-1.5 border border-neutral-200 hover:enabled:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent group-hover:focus:border-workspace-accent focus:shadow-active disabled:bg-neutral-50\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

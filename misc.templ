@@ -6,6 +6,12 @@ templ P() {
 	</p>
 }
 
+templ Title() {
+	<h1 class="text-black text-2xl font-semibold">
+		{ children... }
+	</h1>
+}
+
 templ Subtitle() {
 	<h2 class="text-base text-neutral-800 font-medium">
 		{ children... }
@@ -17,16 +23,16 @@ templ Info() {
 		<div>
 			@InfoIcon()
 		</div>
-		<div class="ui-info-content flex-1 flex items-center gap-0.5">
+		<div class="ui-info-content flex-1">
 			{ children... }
 		</div>
 	</div>
 }
 
-templ Code() {
-	<div class="border border-neutral-200 bg-neutral-50 rounded text-sm text-neutral-500 px-1 py-0.5 inline">
+templ Mark() {
+	<mark class="border border-neutral-200 bg-neutral-50 rounded text-sm text-neutral-500 px-1 py-0.5 inline-flex">
 		{ children... }
-	</div>
+	</mark>
 }
 
 templ Prose() {

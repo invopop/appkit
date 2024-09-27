@@ -32,7 +32,11 @@ templ Button(props *ButtonProps) {
 			popovertarget={ props.PopoverTarget }
 		}
 	>
-		{ props.Label }
+		if props.Label != "" {
+			{ props.Label }
+		} else {
+			{ children... }
+		}
 	</button>
 }
 

@@ -41,7 +41,7 @@ func Page() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t},\n\t\t\t\tselect: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\toptions: [&#39;&#39;, &#39;Sam&#39;, &#39;Juan&#39;, &#39;Javi&#39;, &#39;Luismi&#39;]\n\t\t\t\t},\n\t\t\t\ttextarea: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\trows: &#39;4&#39;\n\t\t\t\t},\n\t\t\t\tdefaultButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t},\n\t\t\t\tprimaryButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t}\n\t\t\t}\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</head><body><main class=\"p-4\" x-data=\"{\n\t\t\t\tinputText: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;\n\t\t\t\t},\n\t\t\t\tselect: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\toptions: [&#39;&#39;, &#39;Sam&#39;, &#39;Juan&#39;, &#39;Javi&#39;, &#39;Luismi&#39;]\n\t\t\t\t},\n\t\t\t\ttextarea: {\n\t\t\t\t\tlabel: &#39;Name&#39;,\n\t\t\t\t\terrorText: &#39;&#39;,\n\t\t\t\t\tdisabled: false,\n\t\t\t\t\tvalue: &#39;&#39;,\n\t\t\t\t\trows: &#39;4&#39;\n\t\t\t\t},\n\t\t\t\tdefaultButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t},\n\t\t\t\tprimaryButton: {\n\t\t\t\t\tdisabled: false,\n\t\t\t\t},\n\t\t\t\ttags: [\n\t\t\t\t\t&#39;One&#39;,\n\t\t\t\t\t&#39;Two&#39;\n\t\t\t\t],\n\t\t\t\ttagRemoved(tag) {\n\t\t\t\t\talert(`Removed tag: ${tag}`)\n\t\t\t\t},\n\t\t\t\ttagAdded(tag) {\n\t\t\t\t\talert(`Added tag: ${tag}`)\n\t\t\t\t}\n\t\t\t}\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -89,7 +89,7 @@ func Page() templ.Component {
 				}
 				return templ_7745c5c3_Err
 			})
-			templ_7745c5c3_Err = appkit.Code().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = appkit.Mark().Render(templ.WithChildren(ctx, templ_7745c5c3_Var3), templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -100,6 +100,29 @@ func Page() templ.Component {
 			return templ_7745c5c3_Err
 		})
 		templ_7745c5c3_Err = appkit.Info().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = fieldConfig(&config{
+			Title: "Tags",
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = appkit.Tags(appkit.TagsProps{
+			Label:    "Tags",
+			Tags:     "tags",
+			OnRemove: "tagRemoved",
+			OnAdd:    "tagAdded",
+		}).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -377,7 +400,7 @@ func fieldConfig(conf *config) templ.Component {
 		var templ_7745c5c3_Var7 string
 		templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(conf.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 232, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 254, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 		if templ_7745c5c3_Err != nil {
@@ -395,7 +418,7 @@ func fieldConfig(conf *config) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(conf.XModel)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 234, Col: 29}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 256, Col: 29}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -423,7 +446,7 @@ func fieldConfig(conf *config) templ.Component {
 				var templ_7745c5c3_Var9 string
 				templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(i.Label)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 242, Col: 14}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 264, Col: 14}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 				if templ_7745c5c3_Err != nil {
@@ -436,7 +459,7 @@ func fieldConfig(conf *config) templ.Component {
 				var templ_7745c5c3_Var10 string
 				templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(i.Type)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 243, Col: 14}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 265, Col: 14}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 				if templ_7745c5c3_Err != nil {
@@ -459,7 +482,7 @@ func fieldConfig(conf *config) templ.Component {
 				var templ_7745c5c3_Var11 string
 				templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(i.Xmodel)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 247, Col: 19}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `examples/page.templ`, Line: 269, Col: 19}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 				if templ_7745c5c3_Err != nil {

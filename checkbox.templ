@@ -1,0 +1,36 @@
+package appkit
+
+type CheckboxProps struct {
+	ID         string
+	Label      string
+	XBindLabel string
+	XModel     string
+	OnChange   string
+}
+
+templ Checkbox(props CheckboxProps) {
+	<div class="flex items-center gap-2">
+		<input
+			id={ props.ID }
+			type="checkbox"
+			class="form-checkbox w-5 h-5 text-workspace-accent focus:text-workspace-accent rounded border border-neutral-200 focus:ring-0 focus:ring-offset-0"
+			if (props.XModel != "") {
+				x-model={ props.XModel }
+			}
+			if (props.OnChange != "") {
+				@change={ props.OnChange }
+			}
+		/>
+		<label
+			for={ props.ID }
+			class="text-base text-neutral-800"
+			if (props.XBindLabel != "") {
+				x-text={ props.XBindLabel }
+			}
+		>
+			if (props.Label != "") {
+				{ props.Label }
+			}
+		</label>
+	</div>
+}

@@ -41,6 +41,16 @@ templ Page() {
 				},
 				primaryButton: {
 					disabled: false,
+				},
+				tags: [
+					'One',
+					'Two'
+				],
+				tagRemoved(tag) {
+					alert(`Removed tag: ${tag}`)
+				},
+				tagAdded(tag) {
+					alert(`Added tag: ${tag}`)
 				}
 			}"
 			>
@@ -51,11 +61,23 @@ templ Page() {
 				<div>
 					@appkit.Info() {
 						The Silo Entry ID of the new document will be available in the
-						@appkit.Code() {
+						@appkit.Mark() {
 							connected-silo-entry-id
 						}
 						shared meta field.
 					}
+				</div>
+				// Tags
+				@fieldConfig(&config{
+					Title: "Tags",
+				})
+				<div>
+					@appkit.Tags(appkit.TagsProps{
+						Label:    "Tags",
+						Tags:     "tags",
+						OnRemove: "tagRemoved",
+						OnAdd:    "tagAdded",
+					})
 				</div>
 				// Input Text
 				@fieldConfig(&config{

@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 [build]
 args_bin = ["serve", "-p", "3000"]
 bin = "./appkit"
-cmd = "templ generate && go build ./cmd/appkit"
+cmd = "TEMPL_EXPERIMENT=rawgo templ generate && go build ./cmd/appkit"
 delay = 1000
 exclude_dir = ["tmp", "vendor", "testdata"]
 exclude_file = ["appkit"]

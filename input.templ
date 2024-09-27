@@ -19,6 +19,7 @@ type InputTextProps struct {
 	XBindValue  string
 	OnChange    string
 	OnInput     string
+	OnEnter     string
 	Placeholder string
 }
 
@@ -63,6 +64,9 @@ templ InputText(props *InputTextProps) {
 			}
 			if props.OnInput != "" {
 				@input={ props.OnInput }
+			}
+			if props.OnEnter != "" {
+				@keydown.enter={ props.OnEnter }
 			}
 		/>
 		if errorText := GetError(&ErrorProps{props.XBindError, props.Error}); errorText != "" {

@@ -22,7 +22,7 @@ type InputTextareaProps struct {
 }
 
 templ Textarea(props *InputTextareaProps) {
-	<div class="flex flex-col">
+	<div class="flex flex-col group">
 		if props.Label != "" || props.XBindLabel != "" {
 			@InputLabel(&InputLabelProps{ID: props.ID, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
@@ -40,7 +40,7 @@ templ Textarea(props *InputTextareaProps) {
 			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 				:value={ value }
 			}
-			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50"
+			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 focus:ring-0 focus:ring-offset-0"
 			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
 			if props.Disabled != "" {
 				:disabled={ props.Disabled }
@@ -79,7 +79,7 @@ templ Contenteditable(props *InputTextareaProps) {
 			if value := GetValue(&ValueProps{props.XBindValue, props.Value}); value != "" {
 				:value={ value }
 			}
-			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 min-h-[80px]"
+			class="py-1.5 px-3 border w-full rounded placeholder-neutral-500 text-base tracking-tight disabled:bg-neutral-50 min-h-[80px] focus:ring-0 focus:ring-offset-0"
 			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
 			if props.Disabled != "" {
 				:disabled={ props.Disabled }

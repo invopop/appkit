@@ -17,7 +17,7 @@ templ Tags(props TagsProps) {
 		if props.Label != "" || props.XBindLabel != "" {
 			@InputLabel(&InputLabelProps{ID: id, Label: props.Label, XBindLabel: props.XBindLabel})
 		}
-		<ul x-show={ props.Tags + `.length` } class="flex items-center gap-2">
+		<ul x-show={ props.Tags + `.length` } class="flex items-center gap-2 flex-wrap">
 			<template x-for={ `(tag, idx) in ` + props.Tags } :key="idx">
 				<li class="inline-flex items-center gap-1 rounded border border-positive-200 bg-positive-100 text-positive-500 py-1 pl-1.5 pr-[5px] lining-nums tabular-nums text-sm font-medium">
 					<span x-text="tag"></span>

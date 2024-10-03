@@ -45,7 +45,7 @@ templ InputText(props *InputTextProps) {
 		<input
 			id={ props.ID }
 			type={ props.GetType() }
-			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight"
+			class="py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight focus:ring-0 focus:ring-offset-0"
 			:class={ GetErrorClasses(&ErrorProps{props.XBindError, props.Error}) }
 			if props.Placeholder != "" {
 				placeholder={ props.Placeholder }

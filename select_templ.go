@@ -62,7 +62,7 @@ func Select(props *SelectProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"pl-2 py-1.5 border border-neutral-200 hover:enabled:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent group-hover:focus:border-workspace-accent focus:shadow-active disabled:bg-neutral-50\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"pl-2 py-1.5 border border-neutral-200 hover:enabled:border-neutral-300 w-full rounded-md text-neutral-800 text-base pr-9 outline-none tracking-tight ui-select focus:border-workspace-accent group-hover:focus:border-workspace-accent focus:shadow-active disabled:bg-neutral-50 focus:ring-0 focus:ring-offset-0\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

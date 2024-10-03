@@ -162,7 +162,7 @@ func InputText(props *InputTextProps) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight\" :class=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"py-1.5 px-2.5 border w-full rounded-md placeholder:text-neutral-500 text-base tracking-tight focus:ring-0 focus:ring-offset-0\" :class=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
